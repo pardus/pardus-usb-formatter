@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+
+<policyconfig>
+
+  <vendor>Pardus Developers</vendor>
+  <vendor_url>http://www.pardus.org.tr/</vendor_url>
+
+  <action id="tr.org.pardus.pkexec.pardus-usb-formatter">
+    <description>Run USB Formatter</description>
+    <message>Authentication is required to run Pardus USB Formatter</message>
+    <message xml:lang="tr">Pardus USB Biçimlendirici için yetkilendirme gerekiyor</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/share/pardus/pardus-usb-formatter/src/USBFormatter.py</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+
+  <action id="tr.org.pardus.pkexec.pardus-usb-formatter-kill">
+    <description>Run USB Formatter</description>
+    <message>Authentication is required to run Pardus USB Formatter</message>
+    <message xml:lang="tr">Pardus USB Biçimlendirici için yetkilendirme gerekiyor</message>e>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/kill</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+
+</policyconfig>
