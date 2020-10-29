@@ -8,7 +8,7 @@
     <property name="resizable">False</property>
     <property name="icon">../icon.svg</property>
     <property name="type_hint">dialog</property>
-    <property name="program_name">Pardus USB Formatter</property>
+    <property name="program_name" translatable="yes">Pardus USB Formatter</property>
     <property name="version">0.1.0~Beta1</property>
     <property name="copyright">© 2020 Pardus</property>
     <property name="comments" translatable="yes">Format USB Devices easily.</property>
@@ -497,50 +497,20 @@ Do you want to continue?</property>
               </packing>
             </child>
             <child>
-              <object class="GtkStack" id="stack_buttons">
-                <property name="name">stack_buttons</property>
+              <object class="GtkButton" id="btn_start">
+                <property name="label" translatable="yes">Start</property>
+                <property name="height_request">32</property>
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <object class="GtkButton" id="btn_start">
-                    <property name="label" translatable="yes">Start</property>
-                    <property name="height_request">32</property>
-                    <property name="visible">True</property>
-                    <property name="sensitive">False</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="margin_top">7</property>
-                    <property name="margin_bottom">7</property>
-                    <property name="always_show_image">True</property>
-                    <signal name="clicked" handler="btn_start_clicked" swapped="no"/>
-                    <style>
-                      <class name="suggested-action"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="name">start</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="btn_cancel">
-                    <property name="label" translatable="yes">Cancel</property>
-                    <property name="height_request">32</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="margin_top">7</property>
-                    <property name="margin_bottom">7</property>
-                    <property name="always_show_image">True</property>
-                    <signal name="clicked" handler="btn_cancel_clicked" swapped="no"/>
-                    <style>
-                      <class name="destructive-action"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="name">cancel</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="margin_top">7</property>
+                <property name="margin_bottom">7</property>
+                <property name="always_show_image">True</property>
+                <signal name="clicked" handler="btn_start_clicked" swapped="no"/>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
               </object>
               <packing>
                 <property name="expand">False</property>

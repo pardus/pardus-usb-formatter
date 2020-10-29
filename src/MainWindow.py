@@ -64,13 +64,10 @@ class MainWindow:
         self.cmb_devices = self.builder.get_object("cmb_devices")
         self.list_formats = self.builder.get_object("list_formats")
         self.cmb_formats = self.builder.get_object("cmb_formats")
-        self.stack_buttons = self.builder.get_object("stack_buttons")
         self.btn_start = self.builder.get_object("btn_start")
 
         # Integrity
         self.cb_slowFormat = self.builder.get_object("cb_slowFormat")
-        self.dialog_wait = self.builder.get_object("dialog_wait")
-        self.dialog_wait.set_position(Gtk.WindowPosition.CENTER)
 
         # Dialog:
         self.dialog_write = self.builder.get_object("dialog_write")
@@ -90,7 +87,6 @@ class MainWindow:
             self.list_devices.append(device)
 
         self.cmb_devices.set_active(0)
-        self.stack_buttons.set_visible_child_name("start")
         
         if len(deviceList) == 0:
             self.btn_start.set_sensitive(False)
@@ -112,9 +108,6 @@ class MainWindow:
     # Buttons:
     def btn_start_clicked(self, button):
         self.prepareWriting()
-    
-    def btn_cancel_clicked(self, button):
-        self.cancelWriting()
     
     def btn_exit_clicked(self, button):
         self.window.get_application().quit()
@@ -138,7 +131,6 @@ class MainWindow:
         response = self.dialog_write.run()
         self.dialog_write.hide()
         if response == Gtk.ResponseType.YES:
-            self.lockGUI()
             self.startProcess([
                 "pkexec",
                 os.path.dirname(os.path.abspath(__file__))+"/USBFormatter.py", 
@@ -148,9 +140,6 @@ class MainWindow:
                 self.txt_deviceName.get_text()
             ])
             self.stack_windows.set_visible_child_name("waiting")
-    
-    def cancelWriting(self):
-        subprocess.call(["pkexec", "kill", "-3", str(self.writerProcessPID)])
 
     # Handling Image Writer process
     def startProcess(self, params):
@@ -169,11 +158,7 @@ class MainWindow:
         return True
     
     def onProcessExit(self, pid, status):
-        self.unlockGUI()
-
         self.listUSBDevices()
-
-        self.dialog_wait.hide()
 
         if status == 0:
             self.sendNotification(tr("Formatting is finished."), tr("You can eject the USB disk."))
@@ -191,22 +176,6 @@ class MainWindow:
             )
             dialog.run()
             dialog.destroy()
-        
-    def lockGUI(self, disableStart=False):
-        self.cmb_formats.set_sensitive(False)
-        self.cmb_devices.set_sensitive(False)
-        self.cb_slowFormat.set_sensitive(False)
-
-        self.stack_buttons.set_visible_child_name("cancel")
-        self.isGUILocked = True
-        
-    def unlockGUI(self):
-        self.cmb_formats.set_sensitive(True)
-        self.cmb_devices.set_sensitive(True)
-        self.cb_slowFormat.set_sensitive(True)
-
-        self.stack_buttons.set_visible_child_name("start")
-        self.isGUILocked = False
     
     def sendNotification(self, title, body):
         notification = Gio.Notification.new(title)

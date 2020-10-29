@@ -1,14 +1,6 @@
 #!/usr/bin/env python3
 
-import subprocess, sys, os, time, signal
-stopWriting = False
-
-def receiveSignal(number, frame):
-    global stopWriting
-    stopWriting = True
-    return
-
-signal.signal(signal.SIGQUIT, receiveSignal)
+import subprocess, sys, os
 
 device = sys.argv[1]
 selectedFormat = sys.argv[2].lower()
