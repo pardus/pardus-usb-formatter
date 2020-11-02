@@ -37,7 +37,6 @@ class MainWindow:
         self.window.connect("destroy", self.onDestroy)
 
         self.defineComponents()
-        self.isGUILocked = False
 
         # Get inserted USB devices            
         self.usbDevice = []
@@ -45,6 +44,14 @@ class MainWindow:
         self.usbManager.setUSBRefreshSignal(self.listUSBDevices)
         self.listUSBDevices()
 
+        # Set version
+        # If not getted from __version__ file then accept version in MainWindow.glade file
+        try:
+            version = open(os.path.dirname(os.path.abspath(__file__)) + "/__version__").readline()
+            self.dialog_about.set_version(version)
+        except:
+            pass
+        
         # Set application:
         self.application = application
 
@@ -78,9 +85,6 @@ class MainWindow:
 
     # USB Methods
     def listUSBDevices(self):
-        if self.isGUILocked == True:
-            return
-
         deviceList = self.usbManager.getUSBDevices()
         self.list_devices.clear()
         for device in deviceList:

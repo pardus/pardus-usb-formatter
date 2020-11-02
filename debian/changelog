@@ -1,4 +1,4 @@
-pardus-usb-formatter (0.1.0) unstable; urgency=medium
+pardus-usb-formatter (0.1.0~Beta1) unstable; urgency=medium
 
   * Initial commit
   * Initialize blank app
