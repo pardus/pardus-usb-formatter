@@ -8,5 +8,6 @@ pardus-usb-formatter (0.1.0~Beta1) unstable; urgency=medium
   * v0.1 - Ready For Publish
   * fixed: Translation path
   * added: Control file
+  * Fixed auth cancelling.
 
- -- Emin Fedar <emin.fedar@pardus.org.tr>  Fri, 19 Jun 2020 00:04:20 +0300
+ -- Emin Fedar <emin.fedar@pardus.org.tr>  Mon, 02 Nov 2020 23:35:40 +0300
