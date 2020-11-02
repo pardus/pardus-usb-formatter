@@ -180,6 +180,9 @@ class MainWindow:
             )
             dialog.run()
             dialog.destroy()
+            self.stack_windows.set_visible_child_name("finished")
+        else:
+            self.stack_windows.set_visible_child_name("main")
     
     def sendNotification(self, title, body):
         notification = Gio.Notification.new(title)
