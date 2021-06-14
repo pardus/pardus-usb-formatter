@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.2 -->
+<!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkAboutDialog" id="dialog_about">
-    <property name="can_focus">False</property>
+    <property name="can-focus">False</property>
     <property name="title" translatable="yes">About</property>
     <property name="resizable">False</property>
     <property name="icon">../icon.svg</property>
-    <property name="type_hint">dialog</property>
-    <property name="program_name" translatable="yes">Pardus USB Formatter</property>
+    <property name="type-hint">dialog</property>
+    <property name="program-name" translatable="yes">Pardus USB Formatter</property>
     <property name="version">0.1.0~Beta1</property>
     <property name="copyright">© 2020 Pardus</property>
     <property name="comments" translatable="yes">Format USB Devices easily.</property>
     <property name="website">https://www.pardus.org.tr</property>
     <property name="authors">Emin Fedar</property>
-    <property name="translator_credits">Emin Fedar</property>
+    <property name="translator-credits">Emin Fedar</property>
     <property name="logo">../icon.svg</property>
-    <property name="license_type">gpl-3-0</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
+    <property name="license-type">gpl-3-0</property>
     <child internal-child="vbox">
       <object class="GtkBox">
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
+            <property name="can-focus">False</property>
+            <property name="layout-style">end</property>
             <child>
               <placeholder/>
             </child>
@@ -49,37 +46,34 @@
     </child>
   </object>
   <object class="GtkDialog" id="dialog_write">
-    <property name="can_focus">False</property>
+    <property name="can-focus">False</property>
     <property name="title" translatable="yes">Are you sure?</property>
-    <property name="window_position">center</property>
-    <property name="default_width">350</property>
-    <property name="default_height">200</property>
-    <property name="icon_name">dialog-question</property>
-    <property name="type_hint">dialog</property>
+    <property name="window-position">center</property>
+    <property name="default-width">350</property>
+    <property name="default-height">200</property>
+    <property name="icon-name">dialog-question</property>
+    <property name="type-hint">dialog</property>
     <property name="gravity">center</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox">
-        <property name="can_focus">False</property>
-        <property name="margin_left">11</property>
-        <property name="margin_right">11</property>
-        <property name="margin_top">11</property>
-        <property name="margin_bottom">11</property>
+        <property name="can-focus">False</property>
+        <property name="margin-left">11</property>
+        <property name="margin-right">11</property>
+        <property name="margin-top">11</property>
+        <property name="margin-bottom">11</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
+            <property name="can-focus">False</property>
+            <property name="layout-style">end</property>
             <child>
               <object class="GtkButton" id="button1">
                 <property name="label">gtk-yes</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="use-stock">True</property>
                 <style>
                   <class name="suggested-action"/>
                 </style>
@@ -94,9 +88,9 @@
               <object class="GtkButton" id="button2">
                 <property name="label">gtk-cancel</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="use-stock">True</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -114,17 +108,17 @@
         <child>
           <object class="GtkBox">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_bottom">11</property>
+            <property name="can-focus">False</property>
+            <property name="margin-bottom">11</property>
             <property name="orientation">vertical</property>
             <property name="spacing">5</property>
             <child>
               <object class="GtkLabel" id="dlg_lbl_disk">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">start</property>
                 <property name="label">- &lt;b&gt;FDR32 [ 32GB ]&lt;/b&gt; &lt;i&gt;( /dev/sda )&lt;/i&gt;</property>
-                <property name="use_markup">True</property>
+                <property name="use-markup">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -135,7 +129,7 @@
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">start</property>
                 <property name="label" translatable="yes">Will be formatted as:</property>
               </object>
@@ -148,10 +142,10 @@
             <child>
               <object class="GtkLabel" id="dlg_lbl_format">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">start</property>
                 <property name="label">- &lt;b&gt;FAT32&lt;/b&gt;</property>
-                <property name="use_markup">True</property>
+                <property name="use-markup">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -162,9 +156,9 @@
             <child>
               <object class="GtkSeparator">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">11</property>
-                <property name="margin_bottom">7</property>
+                <property name="can-focus">False</property>
+                <property name="margin-top">11</property>
+                <property name="margin-bottom">7</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -175,12 +169,12 @@
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">start</property>
                 <property name="label" translatable="yes">&lt;b&gt;WARNING:&lt;/b&gt;
 All the personal data on the device will be deleted.
 Do you want to continue?</property>
-                <property name="use_markup">True</property>
+                <property name="use-markup">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -204,7 +198,7 @@ Do you want to continue?</property>
   </object>
   <object class="GtkImage" id="img_information">
     <property name="visible">True</property>
-    <property name="can_focus">False</property>
+    <property name="can-focus">False</property>
     <property name="stock">gtk-info</property>
   </object>
   <object class="GtkListStore" id="list_devices">
@@ -238,53 +232,33 @@ Do you want to continue?</property>
     </data>
   </object>
   <object class="GtkApplicationWindow" id="window">
-    <property name="can_focus">False</property>
+    <property name="can-focus">False</property>
     <property name="title" translatable="yes">Pardus USB Formatter</property>
-    <property name="window_position">center</property>
-    <property name="default_width">345</property>
-    <property name="default_height">400</property>
+    <property name="window-position">center</property>
+    <property name="default-width">345</property>
+    <property name="default-height">400</property>
     <property name="icon">../icon.svg</property>
     <property name="gravity">center</property>
-    <child type="titlebar">
-      <object class="GtkHeaderBar" id="headerbar">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="title" translatable="yes">Pardus USB Formatter</property>
-        <property name="has_subtitle">False</property>
-        <property name="show_close_button">True</property>
-        <child>
-          <object class="GtkButton" id="btn_information">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="halign">end</property>
-            <property name="image">img_information</property>
-            <property name="always_show_image">True</property>
-            <signal name="clicked" handler="btn_information_clicked" swapped="no"/>
-          </object>
-        </child>
-      </object>
-    </child>
     <child>
       <object class="GtkStack" id="stack_windows">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="transition_duration">400</property>
-        <property name="transition_type">crossfade</property>
+        <property name="can-focus">False</property>
+        <property name="transition-duration">400</property>
+        <property name="transition-type">crossfade</property>
         <child>
           <object class="GtkBox">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_left">11</property>
-            <property name="margin_right">11</property>
-            <property name="margin_top">11</property>
+            <property name="can-focus">False</property>
+            <property name="margin-left">11</property>
+            <property name="margin-right">11</property>
+            <property name="margin-top">11</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="pixbuf">../main.svg</property>
-                <property name="pixel_size">92</property>
+                <property name="pixel-size">92</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -295,7 +269,7 @@ Do you want to continue?</property>
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="label" translatable="yes">Pardus USB Formatter</property>
                 <attributes>
                   <attribute name="weight" value="semibold"/>
@@ -311,9 +285,9 @@ Do you want to continue?</property>
             <child>
               <object class="GtkSeparator">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">7</property>
-                <property name="margin_bottom">7</property>
+                <property name="can-focus">False</property>
+                <property name="margin-top">7</property>
+                <property name="margin-bottom">7</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -324,16 +298,16 @@ Do you want to continue?</property>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">7</property>
-                <property name="margin_bottom">7</property>
+                <property name="can-focus">False</property>
+                <property name="margin-top">7</property>
+                <property name="margin-bottom">7</property>
                 <property name="spacing">7</property>
                 <child>
                   <object class="GtkImage" id="img_drive">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">24</property>
-                    <property name="icon_name">drive-removable-media</property>
+                    <property name="can-focus">False</property>
+                    <property name="pixel-size">24</property>
+                    <property name="icon-name">drive-removable-media</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -344,16 +318,16 @@ Do you want to continue?</property>
                 <child>
                   <object class="GtkComboBox" id="cmb_devices">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="model">list_devices</property>
                     <property name="active">0</property>
-                    <property name="active_id">0</property>
+                    <property name="active-id">0</property>
                     <signal name="changed" handler="cmb_devices_changed" swapped="no"/>
                     <child>
                       <object class="GtkCellRendererText" id="device_name">
                         <property name="ellipsize">end</property>
                         <property name="weight">600</property>
-                        <property name="wrap_width">15</property>
+                        <property name="wrap-width">15</property>
                       </object>
                       <attributes>
                         <attribute name="text">1</attribute>
@@ -382,16 +356,16 @@ Do you want to continue?</property>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">7</property>
-                <property name="margin_bottom">7</property>
+                <property name="can-focus">False</property>
+                <property name="margin-top">7</property>
+                <property name="margin-bottom">7</property>
                 <property name="spacing">7</property>
                 <child>
                   <object class="GtkImage">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">24</property>
-                    <property name="icon_name">media-flash</property>
+                    <property name="can-focus">False</property>
+                    <property name="pixel-size">24</property>
+                    <property name="icon-name">media-flash</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -402,15 +376,15 @@ Do you want to continue?</property>
                 <child>
                   <object class="GtkComboBox" id="cmb_formats">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="has_focus">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="has-focus">True</property>
                     <property name="model">list_formats</property>
                     <property name="active">0</property>
-                    <property name="active_id">0</property>
+                    <property name="active-id">0</property>
                     <child>
                       <object class="GtkCellRendererText" id="device_name2">
                         <property name="ellipsize">end</property>
-                        <property name="wrap_width">15</property>
+                        <property name="wrap-width">15</property>
                       </object>
                       <attributes>
                         <attribute name="text">0</attribute>
@@ -433,16 +407,16 @@ Do you want to continue?</property>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">7</property>
-                <property name="margin_bottom">7</property>
+                <property name="can-focus">False</property>
+                <property name="margin-top">7</property>
+                <property name="margin-bottom">7</property>
                 <property name="spacing">7</property>
                 <child>
                   <object class="GtkImage">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">24</property>
-                    <property name="icon_name">gtk-edit</property>
+                    <property name="can-focus">False</property>
+                    <property name="pixel-size">24</property>
+                    <property name="icon-name">gtk-edit</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -453,8 +427,8 @@ Do you want to continue?</property>
                 <child>
                   <object class="GtkEntry" id="txt_deviceName">
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="placeholder_text" translatable="yes">New Device Name</property>
+                    <property name="can-focus">True</property>
+                    <property name="placeholder-text" translatable="yes">New Device Name</property>
                   </object>
                   <packing>
                     <property name="expand">True</property>
@@ -473,9 +447,9 @@ Do you want to continue?</property>
               <object class="GtkCheckButton" id="cb_slowFormat">
                 <property name="label" translatable="yes">Slow Format (Set all bytes to 0)</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">False</property>
-                <property name="draw_indicator">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">False</property>
+                <property name="draw-indicator">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -486,9 +460,9 @@ Do you want to continue?</property>
             <child>
               <object class="GtkSeparator">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">7</property>
-                <property name="margin_bottom">7</property>
+                <property name="can-focus">False</property>
+                <property name="margin-top">7</property>
+                <property name="margin-bottom">7</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -499,14 +473,14 @@ Do you want to continue?</property>
             <child>
               <object class="GtkButton" id="btn_start">
                 <property name="label" translatable="yes">Start</property>
-                <property name="height_request">32</property>
+                <property name="height-request">32</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="margin_top">7</property>
-                <property name="margin_bottom">7</property>
-                <property name="always_show_image">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="margin-top">7</property>
+                <property name="margin-bottom">7</property>
+                <property name="always-show-image">True</property>
                 <signal name="clicked" handler="btn_start_clicked" swapped="no"/>
                 <style>
                   <class name="suggested-action"/>
@@ -521,9 +495,9 @@ Do you want to continue?</property>
             <child>
               <object class="GtkSeparator">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">7</property>
-                <property name="margin_bottom">7</property>
+                <property name="can-focus">False</property>
+                <property name="margin-top">7</property>
+                <property name="margin-bottom">7</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -534,10 +508,10 @@ Do you want to continue?</property>
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="opacity">0.59999999999999998</property>
-                <property name="margin_top">7</property>
-                <property name="margin_bottom">7</property>
+                <property name="margin-top">7</property>
+                <property name="margin-bottom">7</property>
                 <property name="label">TÜBİTAK ULAKBİM | 2020</property>
                 <attributes>
                   <attribute name="size" value="9500"/>
@@ -546,7 +520,7 @@ Do you want to continue?</property>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="pack_type">end</property>
+                <property name="pack-type">end</property>
                 <property name="position">11</property>
               </packing>
             </child>
@@ -557,22 +531,22 @@ Do you want to continue?</property>
         </child>
         <child>
           <object class="GtkBox">
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
             <property name="spacing">2</property>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">11</property>
-                <property name="margin_bottom">11</property>
+                <property name="can-focus">False</property>
+                <property name="margin-top">11</property>
+                <property name="margin-bottom">21</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">7</property>
                 <child>
                   <object class="GtkSpinner">
-                    <property name="height_request">42</property>
+                    <property name="height-request">42</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="active">True</property>
                   </object>
                   <packing>
@@ -584,7 +558,7 @@ Do you want to continue?</property>
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="label" translatable="yes">Formatting</property>
                     <attributes>
                       <attribute name="size" value="16000"/>
@@ -599,7 +573,7 @@ Do you want to continue?</property>
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="opacity">0.50196078431372548</property>
                     <property name="label" translatable="yes">This may take a while.</property>
                   </object>
@@ -609,9 +583,47 @@ Do you want to continue?</property>
                     <property name="position">2</property>
                   </packing>
                 </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn_cancelWriting">
+                    <property name="label">gtk-cancel</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                    <property name="halign">center</property>
+                    <property name="use-stock">True</property>
+                    <signal name="clicked" handler="btn_cancelWriting_clicked" swapped="no"/>
+                    <style>
+                      <class name="destructive-action"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="pack-type">end</property>
+                    <property name="position">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkProgressBar" id="pb_writingProgress">
+                    <property name="width-request">240</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">center</property>
+                    <property name="show-text">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="pack-type">end</property>
+                    <property name="position">5</property>
+                  </packing>
+                </child>
               </object>
               <packing>
-                <property name="expand">False</property>
+                <property name="expand">True</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
               </packing>
@@ -625,20 +637,20 @@ Do you want to continue?</property>
         <child>
           <object class="GtkBox">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_left">11</property>
-            <property name="margin_right">11</property>
-            <property name="margin_top">11</property>
-            <property name="margin_bottom">11</property>
+            <property name="can-focus">False</property>
+            <property name="margin-left">11</property>
+            <property name="margin-right">11</property>
+            <property name="margin-top">11</property>
+            <property name="margin-bottom">11</property>
             <property name="orientation">vertical</property>
             <property name="spacing">7</property>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="margin_top">7</property>
-                <property name="pixel_size">96</property>
-                <property name="icon_name">dialog-ok</property>
+                <property name="can-focus">False</property>
+                <property name="margin-top">7</property>
+                <property name="pixel-size">96</property>
+                <property name="icon-name">dialog-ok</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -649,7 +661,7 @@ Do you want to continue?</property>
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="label" translatable="yes">Formatting is finished.</property>
                 <attributes>
                   <attribute name="size" value="14000"/>
@@ -664,7 +676,7 @@ Do you want to continue?</property>
             <child>
               <object class="GtkSeparator">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -675,7 +687,7 @@ Do you want to continue?</property>
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="label" translatable="yes">You can eject the USB disk.</property>
               </object>
               <packing>
@@ -688,8 +700,8 @@ Do you want to continue?</property>
               <object class="GtkButton" id="btn_exit">
                 <property name="label" translatable="yes">Exit</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
                 <signal name="clicked" handler="btn_exit_clicked" swapped="no"/>
                 <style>
                   <class name="destructive-action"/>
@@ -698,7 +710,7 @@ Do you want to continue?</property>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="pack_type">end</property>
+                <property name="pack-type">end</property>
                 <property name="position">4</property>
               </packing>
             </child>
@@ -706,14 +718,14 @@ Do you want to continue?</property>
               <object class="GtkButton" id="btn_write_new_file">
                 <property name="label" translatable="yes">Format another device.</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
                 <signal name="clicked" handler="btn_write_new_file_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="pack_type">end</property>
+                <property name="pack-type">end</property>
                 <property name="position">5</property>
               </packing>
             </child>
@@ -722,6 +734,26 @@ Do you want to continue?</property>
             <property name="name">finished</property>
             <property name="position">2</property>
           </packing>
+        </child>
+      </object>
+    </child>
+    <child type="titlebar">
+      <object class="GtkHeaderBar" id="headerbar">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="title" translatable="yes">Pardus USB Formatter</property>
+        <property name="has-subtitle">False</property>
+        <property name="show-close-button">True</property>
+        <child>
+          <object class="GtkButton" id="btn_information">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="halign">end</property>
+            <property name="image">img_information</property>
+            <property name="always-show-image">True</property>
+            <signal name="clicked" handler="btn_information_clicked" swapped="no"/>
+          </object>
         </child>
       </object>
     </child>

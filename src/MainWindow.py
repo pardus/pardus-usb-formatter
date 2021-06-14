@@ -72,6 +72,8 @@ class MainWindow:
         self.list_formats = self.builder.get_object("list_formats")
         self.cmb_formats = self.builder.get_object("cmb_formats")
         self.btn_start = self.builder.get_object("btn_start")
+        self.pb_writingProgress = self.builder.get_object("pb_writingProgress")
+        self.btn_cancelWriting = self.builder.get_object("btn_cancelWriting")
 
         # Integrity
         self.cb_slowFormat = self.builder.get_object("cb_slowFormat")
@@ -111,6 +113,9 @@ class MainWindow:
     
     # Buttons:
     def btn_start_clicked(self, button):
+        self.pb_writingProgress.set_visible(self.cb_slowFormat.get_active())
+        self.btn_cancelWriting.set_visible(self.cb_slowFormat.get_active())
+
         self.prepareWriting()
     
     def btn_exit_clicked(self, button):
@@ -122,12 +127,13 @@ class MainWindow:
     def btn_information_clicked(self,button):
         self.dialog_about.run()
         self.dialog_about.hide()
-
+    
+    def btn_cancelWriting_clicked(self, button):
+        subprocess.call(["pkexec", "kill", "-SIGTERM", str(self.writerProcessPID)])
 
 
     def prepareWriting(self):
         # Ask if it is ok?
-        print(self.txt_deviceName.get_text())
         selectedFormat = self.cmb_formats.get_model()[self.cmb_formats.get_active_iter()][0]
         self.dlg_lbl_format.set_markup(f"- <b>{selectedFormat}</b>")
         self.dlg_lbl_disk.set_markup(f"- <b>{self.usbDevice[1]} [ {self.usbDevice[2]} ]</b> <i>( /dev/{self.usbDevice[0]} )</i>")
@@ -158,11 +164,22 @@ class MainWindow:
             return False
         
         line = source.readline().strip()
-        print(line)
+        if line[0:8] == "PROGRESS":
+            writtenBytes = int(line.split("|")[1])
+            totalBytes = int(line.split("|")[2])
+            percent = writtenBytes / totalBytes
+
+            self.pb_writingProgress.set_text(
+                "{}MB / {}MB (%{})".format(round(writtenBytes / 1000 / 1000), round(totalBytes / 1000 / 1000),
+                                           int(percent * 100)))
+            self.pb_writingProgress.set_fraction(percent)
+        
         return True
     
     def onProcessExit(self, pid, status):
         self.listUSBDevices()
+        self.pb_writingProgress.set_fraction(0)
+        self.pb_writingProgress.set_text(tr("Formatting"))
 
         if status == 0:
             self.sendNotification(tr("Formatting is finished."), tr("You can eject the USB disk."))
