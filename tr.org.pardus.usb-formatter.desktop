@@ -10,6 +10,5 @@ Icon=/usr/share/pardus/pardus-usb-formatter/icon.svg
 Terminal=false
 Type=Application
 Categories=System;
-MimeType=application/x-cd-image;
 StartupNotify=true
 Keywords=format;disk;usb
