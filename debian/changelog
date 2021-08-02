@@ -1,3 +1,15 @@
+pardus-usb-formatter (0.2.0~Beta2) unstable; urgency=medium
+
+  [ Emin Fedar ]
+  * Added gir dependency
+  * Added Icon to system
+
+  [ Fatih Altun ]
+  * Update about icon as dialog-information-symbolic
+  * Update completed icon as emblem-ok-symbolic
+
+ -- Fatih Altun <fatih.altun@pardus.org.tr>  Mon, 02 Aug 2021 16:59:25 +0300
+
 pardus-usb-formatter (0.2.0~Beta1) unstable; urgency=medium
 
   [ Emin Fedar ]
