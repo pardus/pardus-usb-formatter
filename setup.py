@@ -13,6 +13,7 @@ if os.path.exists(changelog):
     f.write(version)
     f.close()
 
+copyfile("icon.svg", "pardus-usb-formatter.svg")
 
 data_files = [
     ("/usr/share/applications/", ["tr.org.pardus.usb-formatter.desktop"]),
@@ -21,7 +22,8 @@ data_files = [
     ("/usr/share/pardus/pardus-usb-formatter/src", ["src/main.py", "src/MainWindow.py", "src/USBFormatter.py", "src/USBDeviceManager.py", "src/__version__"]),
     ("/usr/share/pardus/pardus-usb-formatter/ui", ["ui/MainWindow.glade"]),
     ("/usr/share/polkit-1/actions", ["tr.org.pardus.pkexec.pardus-usb-formatter.policy"]),
-    ("/usr/bin/", ["pardus-usb-formatter"])
+    ("/usr/bin/", ["pardus-usb-formatter"]),
+    ("/usr/share/icons/hicolor/scalable/apps/", ["pardus-usb-formatter.svg"])
 ]
 
 setup(
