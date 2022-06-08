@@ -26,8 +26,8 @@ class USBDeviceManager:
                     usb_devices.append(os.path.basename(dev))
         
         return usb_devices
-    
-    def get_device_infos(self):
+
+    def getUSBDevices(self):
         deviceList = []
         usb_devices = self.find_usb_devices()
         for blockName in usb_devices:
@@ -56,9 +56,6 @@ class USBDeviceManager:
                 pass
         
         return deviceList
-
-    def getUSBDevices(self):
-        return self.get_device_infos()
 
     def setUSBRefreshSignal(self, signalfunc):
         self.refreshSignal = signalfunc

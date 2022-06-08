@@ -1,2 +1,2 @@
 #!/bin/sh
-/usr/bin/python3 /usr/share/pardus/pardus-usb-formatter/src/main.py
+/usr/bin/python3 /usr/share/pardus/pardus-usb-formatter/src/main.py $1

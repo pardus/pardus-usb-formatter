@@ -19,7 +19,9 @@ locale.textdomain(APPNAME)
 locale.setlocale(locale.LC_ALL, SYSTEM_LANGUAGE)
 
 class MainWindow:
-    def __init__(self, application):
+    def __init__(self, application, dev_file=None):
+        self.dev_file = dev_file
+        
         # Gtk Builder
         self.builder = Gtk.Builder()
 
@@ -89,15 +91,24 @@ class MainWindow:
     def listUSBDevices(self):
         deviceList = self.usbManager.getUSBDevices()
         self.list_devices.clear()
+
+        active_id = ""
         for device in deviceList:
             self.list_devices.append(device)
+            if self.dev_file != None and device[0] in self.dev_file:
+                self.cmb_devices.set_active_id(device[0])
+                active_id = device[0]
 
-        self.cmb_devices.set_active(0)
+        if active_id != "":
+            self.cmb_devices.set_active_id(active_id)
+        else:
+            self.cmb_devices.set_active(0)
         
         if len(deviceList) == 0:
             self.btn_start.set_sensitive(False)
         else:
             self.btn_start.set_sensitive(True)
+        
 
 
 
