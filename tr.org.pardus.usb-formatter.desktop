@@ -1,9 +1,12 @@
 [Desktop Entry]
 Name=Pardus USB Formatter
+Name[pt]=Formatador USB Pardus
 Name[tr]=Pardus USB Biçimlendirici
 GenericName=USB Formatter
+GenericName[pt]=Formatador USB
 GenericName[tr]=USB Biçimlendirici
 Comment=Format USB devices easily.
+Comment[pt]=Formata dispositivos USB facilmente.
 Comment[tr]=USB disklerinizi kolayca biçimlendirin.
 Exec=pardus-usb-formatter
 Icon=pardus-usb-formatter
