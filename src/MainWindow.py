@@ -6,17 +6,17 @@ from gi.repository import GLib, Gio, Gtk
 from USBDeviceManager import USBDeviceManager
 
 import locale
-from locale import gettext as tr
+from locale import gettext as _
 
 # Translation Constants:
 APPNAME = "pardus-usb-formatter"
 TRANSLATIONS_PATH = "/usr/share/locale"
-SYSTEM_LANGUAGE = os.environ.get("LANG")
+# SYSTEM_LANGUAGE = os.environ.get("LANG")
 
 # Translation functions:
 locale.bindtextdomain(APPNAME, TRANSLATIONS_PATH)
 locale.textdomain(APPNAME)
-locale.setlocale(locale.LC_ALL, SYSTEM_LANGUAGE)
+# locale.setlocale(locale.LC_ALL, SYSTEM_LANGUAGE)
 
 class MainWindow:
     def __init__(self, application, dev_file=None):
@@ -190,10 +190,10 @@ class MainWindow:
     def onProcessExit(self, pid, status):
         self.listUSBDevices()
         self.pb_writingProgress.set_fraction(0)
-        self.pb_writingProgress.set_text(tr("Formatting"))
+        self.pb_writingProgress.set_text(_("Formatting"))
 
         if status == 0:
-            self.sendNotification(tr("Formatting is finished."), tr("You can eject the USB disk."))
+            self.sendNotification(_("Formatting is finished."), _("You can eject the USB disk."))
             self.stack_windows.set_visible_child_name("finished")
         elif status != 15 and status != 32256: # these are cancelling or auth error.
             dialog = Gtk.MessageDialog(
@@ -201,10 +201,10 @@ class MainWindow:
                 0,
                 Gtk.MessageType.ERROR,
                 Gtk.ButtonsType.OK,
-                tr("An error occured while formatting the disk."),
+                _("An error occured while formatting the disk."),
             )
             dialog.format_secondary_text(
-                tr("Please make sure the USB device is connected properly, not used by any program and try again.")
+                _("Please make sure the USB device is connected properly, not used by any program and try again.")
             )
             dialog.run()
             dialog.destroy()
