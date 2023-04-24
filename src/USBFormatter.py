@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 
-import subprocess, sys, os, signal
-
+import os
+import signal
+import subprocess
+import sys
 
 stopWriting = False
+
 
 def receiveSignal(number, frame):
     global stopWriting
     stopWriting = True
     return
+
 
 signal.signal(signal.SIGTERM, receiveSignal)
 
@@ -21,9 +25,11 @@ blockName = device.split("/")[-1]
 partition = f"{device}1"
 partitionType = selectedFormat if selectedFormat != "exfat" else "ntfs"
 
+
 def execute(command):
     subprocess.call(command)
     subprocess.call(["sync"])
+
 
 # Unmount the drive before writing on it
 subprocess.call(["umount", f"{partition}"])
@@ -36,7 +42,7 @@ if isSlow:
     writtenBytes = 0
     blockCount = int(open(f"/sys/block/{blockName}/size").readline())
     blockSize = int(open(f"/sys/block/{blockName}/queue/logical_block_size").readline())
-    totalFileBytes = blockCount*blockSize
+    totalFileBytes = blockCount * blockSize
 
     writeFile = open(device, "wb")
 
@@ -58,7 +64,7 @@ if isSlow:
                 print("PROGRESS|{}|{}".format(writtenBytes, totalFileBytes))
                 os.fsync(writeFile)
                 sys.stdout.flush()
-        
+
         writeFile.flush()
     except IOError:
         exit(1)
@@ -84,6 +90,5 @@ elif selectedFormat == "ntfs":
     execute(["mkfs.ntfs", "-f", "-L", deviceName, partition])
 elif selectedFormat == "exfat":
     execute(["mkfs.exfat", "-n", deviceName, device])
-
 
 exit(0)

@@ -1,5 +1,10 @@
-import os, sys, subprocess, requests
+#!/usr/bin/python3
+
+import os
+import subprocess
+
 import gi
+
 gi.require_version('Gtk', '3.0')
 from gi.repository import GLib, Gio, Gtk
 
@@ -16,12 +21,14 @@ TRANSLATIONS_PATH = "/usr/share/locale"
 # Translation functions:
 locale.bindtextdomain(APPNAME, TRANSLATIONS_PATH)
 locale.textdomain(APPNAME)
+
+
 # locale.setlocale(locale.LC_ALL, SYSTEM_LANGUAGE)
 
 class MainWindow:
     def __init__(self, application, dev_file=None):
         self.dev_file = dev_file
-        
+
         # Gtk Builder
         self.builder = Gtk.Builder()
 
@@ -53,17 +60,17 @@ class MainWindow:
             self.dialog_about.set_version(version)
         except:
             pass
-        
+
         # Set application:
         self.application = application
 
         # Show Screen:
         self.window.show_all()
-    
+
     # Window methods:
     def onDestroy(self, action):
         self.window.get_application().quit()
-    
+
     def defineComponents(self):
         self.stack_windows = self.builder.get_object("stack_windows")
 
@@ -103,14 +110,11 @@ class MainWindow:
             self.cmb_devices.set_active_id(active_id)
         else:
             self.cmb_devices.set_active(0)
-        
+
         if len(deviceList) == 0:
             self.btn_start.set_sensitive(False)
         else:
             self.btn_start.set_sensitive(True)
-        
-
-
 
     # UI Signals:
     def cmb_devices_changed(self, combobox):
@@ -121,41 +125,41 @@ class MainWindow:
             self.usbDevice = deviceInfo
         else:
             self.btn_start.set_sensitive(False)
-    
+
     # Buttons:
     def btn_start_clicked(self, button):
         self.pb_writingProgress.set_visible(self.cb_slowFormat.get_active())
         self.btn_cancelWriting.set_visible(self.cb_slowFormat.get_active())
 
         self.prepareWriting()
-    
+
     def btn_exit_clicked(self, button):
         self.window.get_application().quit()
-    
+
     def btn_write_new_file_clicked(self, button):
         self.stack_windows.set_visible_child_name("main")
-    
-    def btn_information_clicked(self,button):
+
+    def btn_information_clicked(self, button):
         self.dialog_about.run()
         self.dialog_about.hide()
-    
+
     def btn_cancelWriting_clicked(self, button):
         subprocess.call(["pkexec", "kill", "-SIGTERM", str(self.writerProcessPID)])
-
 
     def prepareWriting(self):
         # Ask if it is ok?
         selectedFormat = self.cmb_formats.get_model()[self.cmb_formats.get_active_iter()][0]
         self.dlg_lbl_format.set_markup(f"- <b>{selectedFormat}</b>")
-        self.dlg_lbl_disk.set_markup(f"- <b>{self.usbDevice[1]} [ {self.usbDevice[2]} ]</b> <i>( /dev/{self.usbDevice[0]} )</i>")
+        self.dlg_lbl_disk.set_markup(
+            f"- <b>{self.usbDevice[1]} [ {self.usbDevice[2]} ]</b> <i>( /dev/{self.usbDevice[0]} )</i>")
 
         response = self.dialog_write.run()
         self.dialog_write.hide()
         if response == Gtk.ResponseType.YES:
             self.startProcess([
                 "pkexec",
-                os.path.dirname(os.path.abspath(__file__))+"/USBFormatter.py", 
-                '/dev/'+self.usbDevice[0],
+                os.path.dirname(os.path.abspath(__file__)) + "/USBFormatter.py",
+                '/dev/' + self.usbDevice[0],
                 selectedFormat,
                 "1" if self.cb_slowFormat.get_active() else "0",
                 self.txt_deviceName.get_text()
@@ -165,15 +169,16 @@ class MainWindow:
     # Handling Image Writer process
     def startProcess(self, params):
         self.writerProcessPID, _, stdout, _ = GLib.spawn_async(params,
-                                    flags=GLib.SPAWN_SEARCH_PATH | GLib.SPAWN_LEAVE_DESCRIPTORS_OPEN | GLib.SPAWN_DO_NOT_REAP_CHILD,
-                                    standard_input=False, standard_output=True, standard_error=True)
+                                                               flags=GLib.SPAWN_SEARCH_PATH | GLib.SPAWN_LEAVE_DESCRIPTORS_OPEN | GLib.SPAWN_DO_NOT_REAP_CHILD,
+                                                               standard_input=False, standard_output=True,
+                                                               standard_error=True)
         GLib.io_add_watch(GLib.IOChannel(stdout), GLib.IO_IN | GLib.IO_HUP, self.onProcessStdout)
         GLib.child_watch_add(GLib.PRIORITY_DEFAULT, self.writerProcessPID, self.onProcessExit)
-    
+
     def onProcessStdout(self, source, condition):
         if condition == GLib.IO_HUP:
             return False
-        
+
         line = source.readline().strip()
         if line[0:8] == "PROGRESS":
             writtenBytes = int(line.split("|")[1])
@@ -184,9 +189,9 @@ class MainWindow:
                 "{}MB / {}MB (%{})".format(round(writtenBytes / 1000 / 1000), round(totalBytes / 1000 / 1000),
                                            int(percent * 100)))
             self.pb_writingProgress.set_fraction(percent)
-        
+
         return True
-    
+
     def onProcessExit(self, pid, status):
         self.listUSBDevices()
         self.pb_writingProgress.set_fraction(0)
@@ -195,7 +200,7 @@ class MainWindow:
         if status == 0:
             self.sendNotification(_("Formatting is finished."), _("You can eject the USB disk."))
             self.stack_windows.set_visible_child_name("finished")
-        elif status != 15 and status != 32256: # these are cancelling or auth error.
+        elif status != 15 and status != 32256:  # these are cancelling or auth error.
             dialog = Gtk.MessageDialog(
                 self.window,
                 0,
@@ -211,7 +216,7 @@ class MainWindow:
             self.stack_windows.set_visible_child_name("finished")
         else:
             self.stack_windows.set_visible_child_name("main")
-    
+
     def sendNotification(self, title, body):
         notification = Gio.Notification.new(title)
         notification.set_body(body)
