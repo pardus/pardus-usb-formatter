@@ -37,7 +37,7 @@ data_files = [
  ("/usr/share/applications/", ["tr.org.pardus.usb-formatter.desktop"]),
  ("/usr/share/pardus/pardus-usb-formatter/", ["icon.svg", "main.svg"]),
  ("/usr/share/pardus/pardus-usb-formatter/src",
-  ["src/main.py", "src/MainWindow.py", "src/USBFormatter.py", "src/USBDeviceManager.py",
+  ["src/Main.py", "src/MainWindow.py", "src/USBFormatter.py", "src/USBDeviceManager.py",
    "src/__version__"]),
  ("/usr/share/pardus/pardus-usb-formatter/ui", ["ui/MainWindow.glade"]),
  ("/usr/share/polkit-1/actions", ["tr.org.pardus.pkexec.pardus-usb-formatter.policy"]),
