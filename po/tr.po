@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-29 17:32+0300\n"
+"POT-Creation-Date: 2023-04-24 16:38+0300\n"
 "PO-Revision-Date: 2020-10-29 17:38+0300\n"
 "Last-Translator: Emin fedar <emin.fedar@pardus.org.tr>\n"
 "Language-Team: Turkish <gelistirici@pardus.org.tr>\n"
@@ -19,42 +19,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: Gtranslator 3.38.0\n"
 
-#: ../src/MainWindow.py:179 ../ui/MainWindow.glade:683
-msgid "Formatting is finished."
-msgstr "Biçimlendirme tamamlandı."
-
-#: ../src/MainWindow.py:179 ../ui/MainWindow.glade:709
-msgid "You can eject the USB disk."
-msgstr "USB diski çıkartabilirisniz."
-
-#: ../src/MainWindow.py:187
-msgid "An error occured while formatting the disk."
-msgstr "Disk biçimlendirilirken bir hata oluştu."
-
-#: ../src/MainWindow.py:190
-msgid ""
-"Please make sure the USB device is connected properly, not used by any "
-"program and try again."
-msgstr ""
-"Lütfen USB cihazın düzgün takılı olduğundan emin olun ve tekrar deneyin."
-
-#: ../ui/MainWindow.glade:7
+#: ui/MainWindow.glade:7
 msgid "About"
 msgstr "Hakkında"
 
-#: ../ui/MainWindow.glade:14
+#: ui/MainWindow.glade:11 ui/MainWindow.glade:238 ui/MainWindow.glade:275
+#: ui/MainWindow.glade:747
+msgid "Pardus USB Formatter"
+msgstr "Pardus USB Biçimlendirici"
+
+#: ui/MainWindow.glade:14
 msgid "Format USB Devices easily."
 msgstr "USB diskleri kolayca biçimlendirin."
 
-#: ../ui/MainWindow.glade:53
+#: ui/MainWindow.glade:52
 msgid "Are you sure?"
 msgstr "Emin misiniz?"
 
-#: ../ui/MainWindow.glade:140
+#: ui/MainWindow.glade:136
 msgid "Will be formatted as:"
 msgstr "Bu türde biçimlendirilecek:"
 
-#: ../ui/MainWindow.glade:180
+#: ui/MainWindow.glade:176
 msgid ""
 "<b>WARNING:</b>\n"
 "All the personal data on the device will be deleted.\n"
@@ -64,39 +50,52 @@ msgstr ""
 "Cihazdaki tüm verileriniz silinecek.\n"
 "Devam etmek istiyor musunuz?"
 
-#: ../ui/MainWindow.glade:242 ../ui/MainWindow.glade:252
-#: ../ui/MainWindow.glade:299
-msgid "Pardus USB Formatter"
-msgstr "Pardus USB Biçimlendirici"
-
-#: ../ui/MainWindow.glade:457
+#: ui/MainWindow.glade:434
 msgid "New Device Name"
 msgstr "Yeni Cihaz İsmi"
 
-#: ../ui/MainWindow.glade:474
+#: ui/MainWindow.glade:451
 msgid "Slow Format (Set all bytes to 0)"
 msgstr "Yavaş Biçimlendir (Tüm baytları sıfırla)"
 
-#: ../ui/MainWindow.glade:506
+#: ui/MainWindow.glade:478
 msgid "Start"
 msgstr "Başlat"
 
-#: ../ui/MainWindow.glade:526
-msgid "Cancel"
-msgstr "İptal Et"
-
-#: ../ui/MainWindow.glade:618
+#: ui/MainWindow.glade:565 src/MainWindow.py:198
 msgid "Formatting"
 msgstr "Biçimlendiriliyor"
 
-#: ../ui/MainWindow.glade:634
+#: ui/MainWindow.glade:581
 msgid "This may take a while."
 msgstr "Bu biraz sürebilir."
 
-#: ../ui/MainWindow.glade:719
+#: ui/MainWindow.glade:668 src/MainWindow.py:201
+msgid "Formatting is finished."
+msgstr "Biçimlendirme tamamlandı."
+
+#: ui/MainWindow.glade:694 src/MainWindow.py:201
+msgid "You can eject the USB disk."
+msgstr "USB diski çıkartabilirisniz."
+
+#: ui/MainWindow.glade:704
 msgid "Exit"
 msgstr "Çıkış Yap"
 
-#: ../ui/MainWindow.glade:737
+#: ui/MainWindow.glade:722
 msgid "Format another device."
 msgstr "Başka bir cihaz biçimlendir."
+
+#: src/MainWindow.py:209
+msgid "An error occured while formatting the disk."
+msgstr "Disk biçimlendirilirken bir hata oluştu."
+
+#: src/MainWindow.py:212
+msgid ""
+"Please make sure the USB device is connected properly, not used by any "
+"program and try again."
+msgstr ""
+"Lütfen USB cihazın düzgün takılı olduğundan emin olun ve tekrar deneyin."
+
+#~ msgid "Cancel"
+#~ msgstr "İptal Et"

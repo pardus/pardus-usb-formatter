@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-29 17:32+0300\n"
+"POT-Creation-Date: 2023-04-24 16:38+0300\n"
 "PO-Revision-Date: 2022-07-22 11:43+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
@@ -19,43 +19,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.1.1\n"
 
-#: ../src/MainWindow.py:179 ../ui/MainWindow.glade:683
-msgid "Formatting is finished."
-msgstr "A formatação está concluída."
-
-#: ../src/MainWindow.py:179 ../ui/MainWindow.glade:709
-msgid "You can eject the USB disk."
-msgstr "Pode ejetar o disco USB."
-
-#: ../src/MainWindow.py:187
-msgid "An error occured while formatting the disk."
-msgstr "Ocorreu um erro durante a formatação do disco."
-
-#: ../src/MainWindow.py:190
-msgid ""
-"Please make sure the USB device is connected properly, not used by any "
-"program and try again."
-msgstr ""
-"Certifique-se de que o dispositivo USB está ligado corretamente, não é "
-"utilizado por nenhum programa e tente novamente."
-
-#: ../ui/MainWindow.glade:7
+#: ui/MainWindow.glade:7
 msgid "About"
 msgstr "Acerca"
 
-#: ../ui/MainWindow.glade:14
+#: ui/MainWindow.glade:11 ui/MainWindow.glade:238 ui/MainWindow.glade:275
+#: ui/MainWindow.glade:747
+msgid "Pardus USB Formatter"
+msgstr "Pardus USB Formatter"
+
+#: ui/MainWindow.glade:14
 msgid "Format USB Devices easily."
 msgstr "Formatar facilmente dispositivos USB."
 
-#: ../ui/MainWindow.glade:53
+#: ui/MainWindow.glade:52
 msgid "Are you sure?"
 msgstr "Tem a certeza?"
 
-#: ../ui/MainWindow.glade:140
+#: ui/MainWindow.glade:136
 msgid "Will be formatted as:"
 msgstr "Será formatado como:"
 
-#: ../ui/MainWindow.glade:180
+#: ui/MainWindow.glade:176
 msgid ""
 "<b>WARNING:</b>\n"
 "All the personal data on the device will be deleted.\n"
@@ -65,39 +50,53 @@ msgstr ""
 "Todos os dados pessoais do dispositivo serão eliminados.\n"
 "Quer continuar?"
 
-#: ../ui/MainWindow.glade:242 ../ui/MainWindow.glade:252
-#: ../ui/MainWindow.glade:299
-msgid "Pardus USB Formatter"
-msgstr "Pardus USB Formatter"
-
-#: ../ui/MainWindow.glade:457
+#: ui/MainWindow.glade:434
 msgid "New Device Name"
 msgstr "Nome do novo dispositivo"
 
-#: ../ui/MainWindow.glade:474
+#: ui/MainWindow.glade:451
 msgid "Slow Format (Set all bytes to 0)"
 msgstr "Formatação lenta (Definir todos os bytes para 0)"
 
-#: ../ui/MainWindow.glade:506
+#: ui/MainWindow.glade:478
 msgid "Start"
 msgstr "Iniciar"
 
-#: ../ui/MainWindow.glade:526
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: ../ui/MainWindow.glade:618
+#: ui/MainWindow.glade:565 src/MainWindow.py:198
 msgid "Formatting"
 msgstr "A formatar"
 
-#: ../ui/MainWindow.glade:634
+#: ui/MainWindow.glade:581
 msgid "This may take a while."
 msgstr "Isto pode demorar algum tempo."
 
-#: ../ui/MainWindow.glade:719
+#: ui/MainWindow.glade:668 src/MainWindow.py:201
+msgid "Formatting is finished."
+msgstr "A formatação está concluída."
+
+#: ui/MainWindow.glade:694 src/MainWindow.py:201
+msgid "You can eject the USB disk."
+msgstr "Pode ejetar o disco USB."
+
+#: ui/MainWindow.glade:704
 msgid "Exit"
 msgstr "Sair"
 
-#: ../ui/MainWindow.glade:737
+#: ui/MainWindow.glade:722
 msgid "Format another device."
 msgstr "Formatar outro dispositivo."
+
+#: src/MainWindow.py:209
+msgid "An error occured while formatting the disk."
+msgstr "Ocorreu um erro durante a formatação do disco."
+
+#: src/MainWindow.py:212
+msgid ""
+"Please make sure the USB device is connected properly, not used by any "
+"program and try again."
+msgstr ""
+"Certifique-se de que o dispositivo USB está ligado corretamente, não é "
+"utilizado por nenhum programa e tente novamente."
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
