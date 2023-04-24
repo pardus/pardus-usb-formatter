@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-from setuptools import setup, find_packages, os
+import os
+from setuptools import setup, find_packages
 from shutil import copyfile
 
 changelog = 'debian/changelog'
-version = ""
+version = "0.1.0"
 if os.path.exists(changelog):
     head = open(changelog).readline()
     try:

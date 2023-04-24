@@ -1,2 +1,5 @@
-#!/bin/sh
-/usr/bin/python3 /usr/share/pardus/pardus-usb-formatter/src/main.py $1
+#!/usr/bin/python3
+
+import sys
+sys.path.insert(0, '/usr/share/pardus/pardus-usb-formatter/src/')
+import Main
