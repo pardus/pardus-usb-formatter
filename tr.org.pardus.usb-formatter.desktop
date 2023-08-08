@@ -12,6 +12,6 @@ Exec=pardus-usb-formatter
 Icon=pardus-usb-formatter
 Terminal=false
 Type=Application
-Categories=System;
+Categories=System;X-Pardus-Apps;
 StartupNotify=true
 Keywords=format;disk;usb
