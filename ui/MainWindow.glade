@@ -6,18 +6,19 @@
     <property name="can-focus">False</property>
     <property name="title" translatable="yes">About</property>
     <property name="resizable">False</property>
-    <property name="icon">../icon.svg</property>
+    <property name="icon-name">pardus-usb-formatter</property>
     <property name="type-hint">dialog</property>
-    <property name="program-name" translatable="yes">Pardus USB Formatter</property>
+    <property name="program-name">Pardus USB Formatter</property>
     <property name="version">0.1.0~Beta1</property>
     <property name="copyright">© 2023 Pardus</property>
     <property name="comments" translatable="yes">Format USB Devices easily.</property>
-    <property name="website">https://www.pardus.org.tr</property>
-    <property name="authors">Emin Fedar</property>
+    <property name="website">https://github.com/pardus/pardus-usb-formatter</property>
+    <property name="authors">Emin Fedar
+Fatih Altun</property>
     <property name="translator-credits">Emin Fedar</property>
     <property name="artists">Çağrı Gökçe
 Yusuf Düzgün</property>
-    <property name="logo">../icon.svg</property>
+    <property name="logo-icon-name">pardus-usb-formatter</property>
     <property name="license-type">gpl-3-0</property>
     <child internal-child="vbox">
       <object class="GtkBox">
@@ -53,16 +54,16 @@ Yusuf Düzgün</property>
     <property name="window-position">center</property>
     <property name="default-width">350</property>
     <property name="default-height">200</property>
-    <property name="icon-name">dialog-question</property>
+    <property name="icon-name">dialog-question-symbolic</property>
     <property name="type-hint">dialog</property>
     <property name="gravity">center</property>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can-focus">False</property>
-        <property name="margin-left">11</property>
-        <property name="margin-right">11</property>
-        <property name="margin-top">11</property>
-        <property name="margin-bottom">11</property>
+        <property name="margin-start">13</property>
+        <property name="margin-end">13</property>
+        <property name="margin-top">13</property>
+        <property name="margin-bottom">13</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
@@ -239,7 +240,7 @@ Do you want to continue?</property>
     <property name="window-position">center</property>
     <property name="default-width">345</property>
     <property name="default-height">400</property>
-    <property name="icon">../icon.svg</property>
+    <property name="icon-name">pardus-usb-formatter</property>
     <property name="gravity">center</property>
     <child>
       <object class="GtkStack" id="stack_windows">
@@ -251,9 +252,9 @@ Do you want to continue?</property>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="margin-left">11</property>
-            <property name="margin-right">11</property>
-            <property name="margin-top">11</property>
+            <property name="margin-start">13</property>
+            <property name="margin-end">13</property>
+            <property name="margin-top">13</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkImage">
@@ -272,11 +273,8 @@ Do you want to continue?</property>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="label" translatable="yes">Pardus USB Formatter</property>
-                <attributes>
-                  <attribute name="weight" value="semibold"/>
-                  <attribute name="size" value="15000"/>
-                </attributes>
+                <property name="label" translatable="yes">&lt;b&gt;&lt;big&gt;Pardus USB Formatter&lt;/big&gt;&lt;/b&gt;</property>
+                <property name="use-markup">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -288,8 +286,8 @@ Do you want to continue?</property>
               <object class="GtkSeparator">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="margin-top">7</property>
-                <property name="margin-bottom">7</property>
+                <property name="margin-top">8</property>
+                <property name="margin-bottom">8</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -301,9 +299,9 @@ Do you want to continue?</property>
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="margin-top">7</property>
-                <property name="margin-bottom">7</property>
-                <property name="spacing">7</property>
+                <property name="margin-top">8</property>
+                <property name="margin-bottom">8</property>
+                <property name="spacing">8</property>
                 <child>
                   <object class="GtkImage" id="img_drive">
                     <property name="visible">True</property>
@@ -360,9 +358,9 @@ Do you want to continue?</property>
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="margin-top">7</property>
-                <property name="margin-bottom">7</property>
-                <property name="spacing">7</property>
+                <property name="margin-top">8</property>
+                <property name="margin-bottom">8</property>
+                <property name="spacing">8</property>
                 <child>
                   <object class="GtkImage">
                     <property name="visible">True</property>
@@ -411,9 +409,9 @@ Do you want to continue?</property>
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="margin-top">7</property>
-                <property name="margin-bottom">7</property>
-                <property name="spacing">7</property>
+                <property name="margin-top">8</property>
+                <property name="margin-bottom">8</property>
+                <property name="spacing">8</property>
                 <child>
                   <object class="GtkImage">
                     <property name="visible">True</property>
@@ -464,8 +462,8 @@ Do you want to continue?</property>
               <object class="GtkSeparator">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="margin-top">7</property>
-                <property name="margin-bottom">7</property>
+                <property name="margin-top">8</property>
+                <property name="margin-bottom">8</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -481,8 +479,8 @@ Do you want to continue?</property>
                 <property name="sensitive">False</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
-                <property name="margin-top">7</property>
-                <property name="margin-bottom">7</property>
+                <property name="margin-top">8</property>
+                <property name="margin-bottom">8</property>
                 <property name="always-show-image">True</property>
                 <signal name="clicked" handler="btn_start_clicked" swapped="no"/>
                 <style>
@@ -496,29 +494,29 @@ Do you want to continue?</property>
               </packing>
             </child>
             <child>
-              <object class="GtkSeparator">
+              <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="margin-top">7</property>
-                <property name="margin-bottom">7</property>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">5</property>
+                <property name="label">TÜBİTAK ULAKBİM | 2023</property>
+                <attributes>
+                  <attribute name="weight" value="thin"/>
+                </attributes>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
+                <property name="pack-type">end</property>
                 <property name="position">9</property>
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkSeparator">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="opacity">0.59999999999999998</property>
-                <property name="margin-top">7</property>
-                <property name="margin-bottom">7</property>
-                <property name="label">TÜBİTAK ULAKBİM | 2023</property>
-                <attributes>
-                  <attribute name="size" value="9500"/>
-                </attributes>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">5</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -536,15 +534,15 @@ Do you want to continue?</property>
           <object class="GtkBox">
             <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
-            <property name="spacing">2</property>
+            <property name="spacing">3</property>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="margin-top">11</property>
+                <property name="margin-top">13</property>
                 <property name="margin-bottom">21</property>
                 <property name="orientation">vertical</property>
-                <property name="spacing">7</property>
+                <property name="spacing">8</property>
                 <child>
                   <object class="GtkSpinner">
                     <property name="height-request">42</property>
@@ -591,12 +589,11 @@ Do you want to continue?</property>
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_cancelWriting">
-                    <property name="label">gtk-cancel</property>
+                    <property name="label">Cancel</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
                     <property name="halign">center</property>
-                    <property name="use-stock">True</property>
                     <signal name="clicked" handler="btn_cancelWriting_clicked" swapped="no"/>
                     <style>
                       <class name="destructive-action"/>
@@ -641,12 +638,12 @@ Do you want to continue?</property>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="margin-left">11</property>
-            <property name="margin-right">11</property>
-            <property name="margin-top">11</property>
-            <property name="margin-bottom">11</property>
+            <property name="margin-start">13</property>
+            <property name="margin-end">13</property>
+            <property name="margin-top">13</property>
+            <property name="margin-bottom">13</property>
             <property name="orientation">vertical</property>
-            <property name="spacing">7</property>
+            <property name="spacing">8</property>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
