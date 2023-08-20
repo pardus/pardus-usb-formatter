@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Emin fedar <emin.fedar@pardus.org.tr>, 2020.
+# Fatih Altun <fatih.altun@pardus.org.tr>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 16:38+0300\n"
-"PO-Revision-Date: 2020-10-29 17:38+0300\n"
-"Last-Translator: Emin fedar <emin.fedar@pardus.org.tr>\n"
-"Language-Team: Turkish <gelistirici@pardus.org.tr>\n"
+"POT-Creation-Date: 2023-08-20 20:24+0300\n"
+"PO-Revision-Date: 2023-08-20 20:24+0300\n"
+"Last-Translator: Fatih Altun <fatih.altun@pardus.org.tr>\n"
+"Language-Team: Turkish <dev@pardus.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,24 +24,19 @@ msgstr ""
 msgid "About"
 msgstr "Hakkında"
 
-#: ui/MainWindow.glade:11 ui/MainWindow.glade:238 ui/MainWindow.glade:275
-#: ui/MainWindow.glade:747
-msgid "Pardus USB Formatter"
-msgstr "Pardus USB Biçimlendirici"
-
 #: ui/MainWindow.glade:14
 msgid "Format USB Devices easily."
 msgstr "USB diskleri kolayca biçimlendirin."
 
-#: ui/MainWindow.glade:52
+#: ui/MainWindow.glade:53
 msgid "Are you sure?"
 msgstr "Emin misiniz?"
 
-#: ui/MainWindow.glade:136
+#: ui/MainWindow.glade:137
 msgid "Will be formatted as:"
 msgstr "Bu türde biçimlendirilecek:"
 
-#: ui/MainWindow.glade:176
+#: ui/MainWindow.glade:177
 msgid ""
 "<b>WARNING:</b>\n"
 "All the personal data on the device will be deleted.\n"
@@ -50,39 +46,51 @@ msgstr ""
 "Cihazdaki tüm verileriniz silinecek.\n"
 "Devam etmek istiyor musunuz?"
 
-#: ui/MainWindow.glade:434
+#: ui/MainWindow.glade:239 ui/MainWindow.glade:744
+msgid "Pardus USB Formatter"
+msgstr "Pardus USB Biçimlendirici"
+
+#: ui/MainWindow.glade:277
+msgid "<b><big>Pardus USB Formatter</big></b>"
+msgstr "<b><big>Pardus USB Biçimlendirici</big></b>"
+
+#: ui/MainWindow.glade:433
 msgid "New Device Name"
 msgstr "Yeni Cihaz İsmi"
 
-#: ui/MainWindow.glade:451
+#: ui/MainWindow.glade:450
 msgid "Slow Format (Set all bytes to 0)"
 msgstr "Yavaş Biçimlendir (Tüm baytları sıfırla)"
 
-#: ui/MainWindow.glade:478
+#: ui/MainWindow.glade:477
 msgid "Start"
 msgstr "Başlat"
 
-#: ui/MainWindow.glade:565 src/MainWindow.py:198
+#: ui/MainWindow.glade:563 src/MainWindow.py:198
 msgid "Formatting"
 msgstr "Biçimlendiriliyor"
 
-#: ui/MainWindow.glade:581
+#: ui/MainWindow.glade:579
 msgid "This may take a while."
 msgstr "Bu biraz sürebilir."
 
-#: ui/MainWindow.glade:668 src/MainWindow.py:201
+#: ui/MainWindow.glade:592
+msgid "Cancel"
+msgstr "İptal Et"
+
+#: ui/MainWindow.glade:665 src/MainWindow.py:201
 msgid "Formatting is finished."
 msgstr "Biçimlendirme tamamlandı."
 
-#: ui/MainWindow.glade:694 src/MainWindow.py:201
+#: ui/MainWindow.glade:691 src/MainWindow.py:201
 msgid "You can eject the USB disk."
-msgstr "USB diski çıkartabilirisniz."
+msgstr "USB diski çıkartabilirsiniz."
 
-#: ui/MainWindow.glade:704
-msgid "Exit"
-msgstr "Çıkış Yap"
+#: ui/MainWindow.glade:701
+msgid "Quit"
+msgstr "Çıkış"
 
-#: ui/MainWindow.glade:722
+#: ui/MainWindow.glade:719
 msgid "Format another device."
 msgstr "Başka bir cihaz biçimlendir."
 
@@ -97,5 +105,5 @@ msgid ""
 msgstr ""
 "Lütfen USB cihazın düzgün takılı olduğundan emin olun ve tekrar deneyin."
 
-#~ msgid "Cancel"
-#~ msgstr "İptal Et"
+#~ msgid "Exit"
+#~ msgstr "Çıkış Yap"
