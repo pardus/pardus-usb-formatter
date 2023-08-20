@@ -589,7 +589,7 @@ Do you want to continue?</property>
                 </child>
                 <child>
                   <object class="GtkButton" id="btn_cancelWriting">
-                    <property name="label">Cancel</property>
+                    <property name="label" translatable="yes">Cancel</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
@@ -698,7 +698,7 @@ Do you want to continue?</property>
             </child>
             <child>
               <object class="GtkButton" id="btn_exit">
-                <property name="label" translatable="yes">Exit</property>
+                <property name="label" translatable="yes">Quit</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
