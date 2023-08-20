@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 import subprocess
-from shutil import copyfile
+
 from setuptools import setup, find_packages
 
 
@@ -31,19 +31,26 @@ if os.path.exists(changelog):
     f.write(version)
     f.close()
 
-copyfile("icon.svg", "pardus-usb-formatter.svg")
-
 data_files = [
- ("/usr/share/applications/", ["tr.org.pardus.usb-formatter.desktop"]),
- ("/usr/share/pardus/pardus-usb-formatter/", ["icon.svg", "main.svg"]),
- ("/usr/share/pardus/pardus-usb-formatter/src",
-  ["src/Main.py", "src/MainWindow.py", "src/USBFormatter.py", "src/USBDeviceManager.py",
-   "src/__version__"]),
- ("/usr/share/pardus/pardus-usb-formatter/ui", ["ui/MainWindow.glade"]),
- ("/usr/share/polkit-1/actions", ["tr.org.pardus.pkexec.pardus-usb-formatter.policy"]),
- ("/usr/bin/", ["pardus-usb-formatter"]),
- ("/usr/share/icons/hicolor/scalable/apps/", ["pardus-usb-formatter.svg"])
-] + create_mo_files()
+                 ("/usr/share/applications/",
+                  ["tr.org.pardus.usb-formatter.desktop"]),
+                 ("/usr/share/pardus/pardus-usb-formatter/",
+                  ["pardus-usb-formatter.svg", "main.svg"]),
+                 ("/usr/share/pardus/pardus-usb-formatter/src",
+                  ["src/Main.py",
+                   "src/MainWindow.py",
+                   "src/USBFormatter.py",
+                   "src/USBDeviceManager.py",
+                   "src/__version__"]),
+                 ("/usr/share/pardus/pardus-usb-formatter/ui",
+                  ["ui/MainWindow.glade"]),
+                 ("/usr/share/polkit-1/actions",
+                  ["tr.org.pardus.pkexec.pardus-usb-formatter.policy"]),
+                 ("/usr/bin/",
+                  ["pardus-usb-formatter"]),
+                 ("/usr/share/icons/hicolor/scalable/apps/",
+                  ["pardus-usb-formatter.svg"])
+             ] + create_mo_files()
 
 setup(
     name="Pardus USB Formatter",
