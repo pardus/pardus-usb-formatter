@@ -60,6 +60,7 @@ class MainWindow:
             self.dialog_about.set_version(version)
         except:
             pass
+        self.dialog_about.set_program_name(_("Pardus USB Formatter"))
 
         # Set application:
         self.application = application
