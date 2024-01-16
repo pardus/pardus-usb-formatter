@@ -17,13 +17,13 @@ def receiveSignal(number, frame):
 signal.signal(signal.SIGTERM, receiveSignal)
 
 device = sys.argv[1]
-selectedFormat = sys.argv[2].lower()
+selectedFormat = sys.argv[2]
 isSlow = sys.argv[3] == "1"
 deviceName = sys.argv[4] if sys.argv[4] else ""
 blockName = device.split("/")[-1]
 
 partition = f"{device}1"
-partitionType = selectedFormat if selectedFormat != "exfat" else "ntfs"
+partitionType = selectedFormat if selectedFormat != "EXFAT" else "NTFS"
 
 
 def execute(command):
@@ -51,7 +51,7 @@ if isSlow:
         print("PROGRESS|{}|{}".format(writtenBytes, totalFileBytes))
         sys.stdout.flush()
         while totalFileBytes != writtenBytes:
-            if stopWriting == True:
+            if stopWriting:
                 break
 
             zeros = bytes([0] * blockSize)
@@ -82,13 +82,13 @@ execute(["parted", device, "mkpart", "primary", partitionType, "1", "100%"])
 execute(["wipefs", "-a", partition, "--force"])
 
 # Format:
-if selectedFormat == "fat32":
+if selectedFormat == "FAT32":
     execute(["mkfs.fat", "-F", "32", "-n", deviceName, "-I", partition])
-elif selectedFormat == "ext4":
+elif selectedFormat == "EXT4":
     execute(["mkfs.ext4", "-L", deviceName, partition])
-elif selectedFormat == "ntfs":
+elif selectedFormat == "NTFS":
     execute(["mkfs.ntfs", "-f", "-L", deviceName, partition])
-elif selectedFormat == "exfat":
+elif selectedFormat == "EXFAT":
     execute(["mkfs.exfat", "-n", deviceName, device])
 
 exit(0)

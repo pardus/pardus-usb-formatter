@@ -4,12 +4,12 @@ import os
 from glob import glob
 
 from pyudev import Context, Monitor, Devices
-from pyudev import MonitorObserver
+from pyudev import MonitorObserver, DeviceNotFoundAtPathError
 
 
 class USBDeviceManager:
     def __init__(self):
-        self.refreshSignal = (lambda a: a)  # this function is set by MainWindow
+        self.refreshSignal = lambda a: a  # this function is set by MainWindow
         self.context = Context()
         self.monitor = Monitor.from_netlink(self.context)
         self.monitor.filter_by(subsystem="block", device_type="disk")
@@ -21,11 +21,11 @@ class USBDeviceManager:
         self.observer.start()
 
     def find_usb_devices(self):
-        sdb_devices = list(map(os.path.realpath, glob('/sys/block/sd*')))
+        sdb_devices = list(map(os.path.realpath, glob("/sys/block/sd*")))
         usb_devices = []
         for dev in sdb_devices:
-            for prop in dev.split('/'):
-                if 'usb' in prop:
+            for prop in dev.split("/"):
+                if "usb" in prop:
                     usb_devices.append(os.path.basename(dev))
 
         return usb_devices
@@ -40,23 +40,28 @@ class USBDeviceManager:
                 # 'sda'
                 deviceInfo.append(blockName)
 
-                # 'Sandisk Cruzer Glide'
+                # 'MYDISK Sandisk Cruzer Glide'
+                deviceLabel = device.get("ID_FS_LABEL", "")
                 deviceVendor = device.get("ID_VENDOR", "")
                 deviceModel = device.get("ID_MODEL", "NO_MODEL")
-                deviceInfo.append(f"{deviceVendor} {deviceModel}")
+                deviceInfo.append(f"{deviceLabel} {deviceVendor} {deviceModel}")
 
                 # '4GB'
                 blockCount = int(open(f"/sys/block/{blockName}/size").readline())
-                blockSize = int(open(f"/sys/block/{blockName}/queue/logical_block_size").readline())
-                deviceInfo.append(f"{int((blockCount * blockSize) / 1000 / 1000 / 1000)}GB")
+                blockSize = int(
+                    open(f"/sys/block/{blockName}/queue/logical_block_size").readline()
+                )
+                deviceInfo.append(
+                    f"{int((blockCount * blockSize) / 1000 / 1000 / 1000)}GB"
+                )
 
-                # deviceInfo is something like this: ['sda', 'DISKNAME', '4GB']
+                # deviceInfo example data: ['sda', 'MYDISK Sandisk Cruzer Glide', '4GB']
 
                 # Add device to list
                 if blockCount > 0:
                     deviceList.append(deviceInfo)
-            except:
-                pass
+            except DeviceNotFoundAtPathError:
+                print(f"Device {blockName} not found")
 
         return deviceList
 

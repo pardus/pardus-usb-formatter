@@ -14,5 +14,5 @@ Depends: ${misc:Depends},
          python3-gi,
          python3-pyudev,
          gir1.2-gtk-3.0
-Description: Pardus USB Formatter
- Simple Gtk+ and Python based USB Formatter
+Description: Simple Gtk+ and Python based USB Formatter
+ Format your USB storage devices easily with Pardus USB Formatter's simple GUI.

@@ -1,29 +1,25 @@
 #!/usr/bin/python3
 
+import locale
+from locale import gettext as _
+from USBDeviceManager import USBDeviceManager
 import os
 import subprocess
 
 import gi
 
-gi.require_version('Gtk', '3.0')
-from gi.repository import GLib, Gio, Gtk
+gi.require_version("Gtk", "3.0")
+from gi.repository import GLib, Gio, Gtk  # noqa
 
-from USBDeviceManager import USBDeviceManager
-
-import locale
-from locale import gettext as _
 
 # Translation Constants:
 APPNAME = "pardus-usb-formatter"
 TRANSLATIONS_PATH = "/usr/share/locale"
-# SYSTEM_LANGUAGE = os.environ.get("LANG")
 
 # Translation functions:
 locale.bindtextdomain(APPNAME, TRANSLATIONS_PATH)
 locale.textdomain(APPNAME)
 
-
-# locale.setlocale(locale.LC_ALL, SYSTEM_LANGUAGE)
 
 class MainWindow:
     def __init__(self, application, dev_file=None):
@@ -36,7 +32,9 @@ class MainWindow:
         self.builder.set_translation_domain(APPNAME)
 
         # Import UI file:
-        self.builder.add_from_file(os.path.dirname(os.path.abspath(__file__)) + "/../ui/MainWindow.glade")
+        self.builder.add_from_file(
+            os.path.dirname(os.path.abspath(__file__)) + "/../ui/MainWindow.glade"
+        )
         self.builder.connect_signals(self)
 
         # Window
@@ -47,19 +45,20 @@ class MainWindow:
 
         self.defineComponents()
 
-        # Get inserted USB devices            
+        # Get inserted USB devices
         self.usbDevice = []
         self.usbManager = USBDeviceManager()
         self.usbManager.setUSBRefreshSignal(self.listUSBDevices)
         self.listUSBDevices()
 
         # Set version
-        # If not getted from __version__ file then accept version in MainWindow.glade file
-        try:
-            version = open(os.path.dirname(os.path.abspath(__file__)) + "/__version__").readline()
+        # If can't get from `./__version__` file then accept version in MainWindow.glade file
+        with open(
+            os.path.dirname(os.path.abspath(__file__)) + "/__version__"
+        ) as version_file:
+            version = version_file.readline()
             self.dialog_about.set_version(version)
-        except:
-            pass
+
         self.dialog_about.set_program_name(_("Pardus USB Formatter"))
 
         # Set application:
@@ -103,7 +102,7 @@ class MainWindow:
         active_id = ""
         for device in deviceList:
             self.list_devices.append(device)
-            if self.dev_file != None and device[0] in self.dev_file:
+            if self.dev_file is not None and device[0] in self.dev_file:
                 self.cmb_devices.set_active_id(device[0])
                 active_id = device[0]
 
@@ -129,10 +128,11 @@ class MainWindow:
 
     # Buttons:
     def btn_start_clicked(self, button):
-        self.pb_writingProgress.set_visible(self.cb_slowFormat.get_active())
-        self.btn_cancelWriting.set_visible(self.cb_slowFormat.get_active())
+        if self.formatting_rule_checks():
+            self.pb_writingProgress.set_visible(self.cb_slowFormat.get_active())
+            self.btn_cancelWriting.set_visible(self.cb_slowFormat.get_active())
 
-        self.prepareWriting()
+            self.prepareWriting()
 
     def btn_exit_clicked(self, button):
         self.window.get_application().quit()
@@ -149,32 +149,46 @@ class MainWindow:
 
     def prepareWriting(self):
         # Ask if it is ok?
-        selectedFormat = self.cmb_formats.get_model()[self.cmb_formats.get_active_iter()][0]
+        selectedFormat = self.cmb_formats.get_model()[
+            self.cmb_formats.get_active_iter()
+        ][0]
         self.dlg_lbl_format.set_markup(f"- <b>{selectedFormat}</b>")
         self.dlg_lbl_disk.set_markup(
-            f"- <b>{self.usbDevice[1]} [ {self.usbDevice[2]} ]</b> <i>( /dev/{self.usbDevice[0]} )</i>")
+            f"- <b>{self.usbDevice[1]} [ {self.usbDevice[2]} ]</b> <i>( /dev/{self.usbDevice[0]} )</i>"
+        )
 
         response = self.dialog_write.run()
         self.dialog_write.hide()
         if response == Gtk.ResponseType.YES:
-            self.startProcess([
-                "pkexec",
-                os.path.dirname(os.path.abspath(__file__)) + "/USBFormatter.py",
-                '/dev/' + self.usbDevice[0],
-                selectedFormat,
-                "1" if self.cb_slowFormat.get_active() else "0",
-                self.txt_deviceName.get_text()
-            ])
+            self.startProcess(
+                [
+                    "pkexec",
+                    os.path.dirname(os.path.abspath(__file__)) + "/USBFormatter.py",
+                    "/dev/" + self.usbDevice[0],
+                    selectedFormat,
+                    "1" if self.cb_slowFormat.get_active() else "0",
+                    self.txt_deviceName.get_text(),
+                ]
+            )
             self.stack_windows.set_visible_child_name("waiting")
 
     # Handling Image Writer process
     def startProcess(self, params):
-        self.writerProcessPID, _, stdout, _ = GLib.spawn_async(params,
-                                                               flags=GLib.SPAWN_SEARCH_PATH | GLib.SPAWN_LEAVE_DESCRIPTORS_OPEN | GLib.SPAWN_DO_NOT_REAP_CHILD,
-                                                               standard_input=False, standard_output=True,
-                                                               standard_error=True)
-        GLib.io_add_watch(GLib.IOChannel(stdout), GLib.IO_IN | GLib.IO_HUP, self.onProcessStdout)
-        GLib.child_watch_add(GLib.PRIORITY_DEFAULT, self.writerProcessPID, self.onProcessExit)
+        self.writerProcessPID, _, stdout, _ = GLib.spawn_async(
+            params,
+            flags=GLib.SPAWN_SEARCH_PATH
+            | GLib.SPAWN_LEAVE_DESCRIPTORS_OPEN
+            | GLib.SPAWN_DO_NOT_REAP_CHILD,
+            standard_input=False,
+            standard_output=True,
+            standard_error=True,
+        )
+        GLib.io_add_watch(
+            GLib.IOChannel(stdout), GLib.IO_IN | GLib.IO_HUP, self.onProcessStdout
+        )
+        GLib.child_watch_add(
+            GLib.PRIORITY_DEFAULT, self.writerProcessPID, self.onProcessExit
+        )
 
     def onProcessStdout(self, source, condition):
         if condition == GLib.IO_HUP:
@@ -187,8 +201,12 @@ class MainWindow:
             percent = writtenBytes / totalBytes
 
             self.pb_writingProgress.set_text(
-                "{}MB / {}MB (%{})".format(round(writtenBytes / 1000 / 1000), round(totalBytes / 1000 / 1000),
-                                           int(percent * 100)))
+                "{}MB / {}MB (%{})".format(
+                    round(writtenBytes / 1000 / 1000),
+                    round(totalBytes / 1000 / 1000),
+                    int(percent * 100),
+                )
+            )
             self.pb_writingProgress.set_fraction(percent)
 
         return True
@@ -199,7 +217,9 @@ class MainWindow:
         self.pb_writingProgress.set_text(_("Formatting"))
 
         if status == 0:
-            self.sendNotification(_("Formatting is finished."), _("You can eject the USB disk."))
+            self.sendNotification(
+                _("Formatting is finished."), _("You can eject the USB disk.")
+            )
             self.stack_windows.set_visible_child_name("finished")
         elif status != 15 and status != 32256:  # these are cancelling or auth error.
             dialog = Gtk.MessageDialog(
@@ -210,7 +230,9 @@ class MainWindow:
                 _("An error occured while formatting the disk."),
             )
             dialog.format_secondary_text(
-                _("Please make sure the USB device is connected properly, not used by any program and try again.")
+                _(
+                    "Please make sure the USB device is connected properly, not used by any program and try again."
+                )
             )
             dialog.run()
             dialog.destroy()
@@ -223,4 +245,74 @@ class MainWindow:
         notification.set_body(body)
         notification.set_icon(Gio.ThemedIcon(name="pardus-usb-formatter"))
         notification.set_default_action("app.notification-response::focus")
-        self.application.send_notification(self.application.get_application_id(), notification)
+        self.application.send_notification(
+            self.application.get_application_id(), notification
+        )
+
+    def formatting_rule_checks(self):
+        selectedFormat = self.cmb_formats.get_model()[
+            self.cmb_formats.get_active_iter()
+        ][0]
+        newDeviceName = self.txt_deviceName.get_text()
+
+        if selectedFormat == "FAT32":
+            if len(newDeviceName) > 11:
+                self.show_error_dialog(
+                    _("Device name is too long."),
+                    _(
+                        "{} format supports maximum {} characters.".format(
+                            "FAT32", "11"
+                        )
+                    ),
+                )
+                return False
+
+            try:
+                newDeviceName.encode("cp850", errors="strict")
+            except ValueError:
+                self.show_error_dialog(
+                    _("Device name contains invalid characters."),
+                    _("FAT32 format only supports ASCII characters."),
+                )
+                return False
+        elif selectedFormat == "NTFS":
+            if len(newDeviceName) > 32:
+                self.show_error_dialog(
+                    _("Device name is too long."),
+                    _("{} format supports maximum {} characters.".format("NTFS", "32")),
+                )
+                return False
+
+        elif selectedFormat == "EXFAT":
+            if len(newDeviceName) > 11:
+                self.show_error_dialog(
+                    _("Device name is too long."),
+                    _(
+                        "{} format supports maximum {} characters.".format(
+                            "EXFAT", "11"
+                        )
+                    ),
+                )
+                return False
+        elif selectedFormat == "EXT4":
+            if len(newDeviceName) > 16:
+                self.show_error_dialog(
+                    _("Device name is too long."),
+                    _("{} format supports maximum {} characters.".format("EXT4", "16")),
+                )
+                return False
+
+        # Everything is ok:
+        return True
+
+    def show_error_dialog(self, primary, secondary):
+        dialog = Gtk.MessageDialog(
+            self.window,
+            0,
+            Gtk.MessageType.ERROR,
+            Gtk.ButtonsType.OK,
+            primary,
+        )
+        dialog.format_secondary_text(secondary)
+        dialog.run()
+        dialog.destroy()

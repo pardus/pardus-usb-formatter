@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-20 20:24+0300\n"
+"POT-Creation-Date: 2024-01-16 15:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,10 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ui/MainWindow.glade:7
-msgid "About"
-msgstr ""
 
 #: ui/MainWindow.glade:14
 msgid "Format USB Devices easily."
@@ -40,7 +36,7 @@ msgid ""
 "Do you want to continue?"
 msgstr ""
 
-#: ui/MainWindow.glade:239 ui/MainWindow.glade:744
+#: ui/MainWindow.glade:239 ui/MainWindow.glade:744 src/MainWindow.py:63
 msgid "Pardus USB Formatter"
 msgstr ""
 
@@ -60,7 +56,7 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: ui/MainWindow.glade:563 src/MainWindow.py:198
+#: ui/MainWindow.glade:563 src/MainWindow.py:218
 msgid "Formatting"
 msgstr ""
 
@@ -72,11 +68,11 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ui/MainWindow.glade:665 src/MainWindow.py:201
+#: ui/MainWindow.glade:665 src/MainWindow.py:222
 msgid "Formatting is finished."
 msgstr ""
 
-#: ui/MainWindow.glade:691 src/MainWindow.py:201
+#: ui/MainWindow.glade:691 src/MainWindow.py:222
 msgid "You can eject the USB disk."
 msgstr ""
 
@@ -88,12 +84,30 @@ msgstr ""
 msgid "Format another device."
 msgstr ""
 
-#: src/MainWindow.py:209
+#: src/MainWindow.py:231
 msgid "An error occured while formatting the disk."
 msgstr ""
 
-#: src/MainWindow.py:212
+#: src/MainWindow.py:235
 msgid ""
 "Please make sure the USB device is connected properly, not used by any "
 "program and try again."
+msgstr ""
+
+#: src/MainWindow.py:262 src/MainWindow.py:282 src/MainWindow.py:290
+#: src/MainWindow.py:301
+msgid "Device name is too long."
+msgstr ""
+
+#: src/MainWindow.py:264 src/MainWindow.py:283 src/MainWindow.py:292
+#: src/MainWindow.py:302
+msgid "{} format supports maximum {} characters."
+msgstr ""
+
+#: src/MainWindow.py:275
+msgid "Device name contains invalid characters."
+msgstr ""
+
+#: src/MainWindow.py:276
+msgid "FAT32 format only supports ASCII characters."
 msgstr ""

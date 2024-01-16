@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-20 20:24+0300\n"
+"POT-Creation-Date: 2024-01-16 15:19+0300\n"
 "PO-Revision-Date: 2023-08-26 17:15+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
@@ -18,10 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.2\n"
-
-#: ui/MainWindow.glade:7
-msgid "About"
-msgstr "Acerca"
 
 #: ui/MainWindow.glade:14
 msgid "Format USB Devices easily."
@@ -45,12 +41,11 @@ msgstr ""
 "Todos os dados pessoais do dispositivo serão eliminados.\n"
 "Quer continuar?"
 
-#: ui/MainWindow.glade:239 ui/MainWindow.glade:744
+#: ui/MainWindow.glade:239 ui/MainWindow.glade:744 src/MainWindow.py:63
 msgid "Pardus USB Formatter"
 msgstr "Formatador USB Pardus"
 
 #: ui/MainWindow.glade:277
-#| msgid "Pardus USB Formatter"
 msgid "<b><big>Pardus USB Formatter</big></b>"
 msgstr "<b><big>Formatador USB Pardus</big></b>"
 
@@ -66,7 +61,7 @@ msgstr "Formatação lenta (Definir todos os bytes para 0)"
 msgid "Start"
 msgstr "Iniciar"
 
-#: ui/MainWindow.glade:563 src/MainWindow.py:198
+#: ui/MainWindow.glade:563 src/MainWindow.py:218
 msgid "Formatting"
 msgstr "A formatar"
 
@@ -78,11 +73,11 @@ msgstr "Isto pode demorar algum tempo."
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ui/MainWindow.glade:665 src/MainWindow.py:201
+#: ui/MainWindow.glade:665 src/MainWindow.py:222
 msgid "Formatting is finished."
 msgstr "A formatação está concluída."
 
-#: ui/MainWindow.glade:691 src/MainWindow.py:201
+#: ui/MainWindow.glade:691 src/MainWindow.py:222
 msgid "You can eject the USB disk."
 msgstr "Pode ejetar o disco USB."
 
@@ -94,17 +89,38 @@ msgstr "Sair"
 msgid "Format another device."
 msgstr "Formatar outro dispositivo."
 
-#: src/MainWindow.py:209
+#: src/MainWindow.py:231
 msgid "An error occured while formatting the disk."
 msgstr "Ocorreu um erro durante a formatação do disco."
 
-#: src/MainWindow.py:212
+#: src/MainWindow.py:235
 msgid ""
 "Please make sure the USB device is connected properly, not used by any "
 "program and try again."
 msgstr ""
 "Certifique-se de que o dispositivo USB está ligado corretamente, não é "
 "utilizado por nenhum programa e tente novamente."
+
+#: src/MainWindow.py:262 src/MainWindow.py:282 src/MainWindow.py:290
+#: src/MainWindow.py:301
+msgid "Device name is too long."
+msgstr ""
+
+#: src/MainWindow.py:264 src/MainWindow.py:283 src/MainWindow.py:292
+#: src/MainWindow.py:302
+msgid "{} format supports maximum {} characters."
+msgstr ""
+
+#: src/MainWindow.py:275
+msgid "Device name contains invalid characters."
+msgstr ""
+
+#: src/MainWindow.py:276
+msgid "FAT32 format only supports ASCII characters."
+msgstr ""
+
+#~ msgid "About"
+#~ msgstr "Acerca"
 
 #~ msgid "Exit"
 #~ msgstr "Sair"
