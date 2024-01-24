@@ -21,6 +21,11 @@ locale.bindtextdomain(APPNAME, TRANSLATIONS_PATH)
 locale.textdomain(APPNAME)
 
 
+def async_task(func):
+    task = Gio.Task.new()
+    task.run_in_thread(func)
+
+
 class MainWindow:
     def __init__(self, application, dev_file=None):
         self.dev_file = dev_file
@@ -132,7 +137,7 @@ class MainWindow:
             self.pb_writingProgress.set_visible(self.cb_slowFormat.get_active())
             self.btn_cancelWriting.set_visible(self.cb_slowFormat.get_active())
 
-            self.prepareWriting()
+            async_task(self.prepare_writing_async)
 
     def btn_exit_clicked(self, button):
         self.window.get_application().quit()
@@ -147,7 +152,12 @@ class MainWindow:
     def btn_cancelWriting_clicked(self, button):
         subprocess.call(["pkexec", "kill", "-SIGTERM", str(self.writerProcessPID)])
 
-    def prepareWriting(self):
+    def prepare_writing_async(self, task, source_object, data, cancellable):
+        self.prepare_writing()
+
+        task.return_boolean(True)
+
+    def prepare_writing(self):
         # Ask if it is ok?
         selectedFormat = self.cmb_formats.get_model()[
             self.cmb_formats.get_active_iter()

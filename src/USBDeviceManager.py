@@ -42,9 +42,12 @@ class USBDeviceManager:
 
                 # 'MYDISK Sandisk Cruzer Glide'
                 deviceLabel = device.get("ID_FS_LABEL", "")
-                deviceVendor = device.get("ID_VENDOR", "")
-                deviceModel = device.get("ID_MODEL", "NO_MODEL")
-                deviceInfo.append(f"{deviceLabel} {deviceVendor} {deviceModel}")
+                if deviceLabel:
+                    deviceInfo.append(deviceLabel)
+                else:
+                    deviceVendor = device.get("ID_VENDOR", "")
+                    deviceModel = device.get("ID_MODEL", "NO_MODEL")
+                    deviceInfo.append(f"{deviceVendor} {deviceModel}")
 
                 # '4GB'
                 blockCount = int(open(f"/sys/block/{blockName}/size").readline())
