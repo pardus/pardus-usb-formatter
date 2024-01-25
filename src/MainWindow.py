@@ -21,11 +21,6 @@ locale.bindtextdomain(APPNAME, TRANSLATIONS_PATH)
 locale.textdomain(APPNAME)
 
 
-def async_task(func):
-    task = Gio.Task.new()
-    task.run_in_thread(func)
-
-
 class MainWindow:
     def __init__(self, application, dev_file=None):
         self.dev_file = dev_file
@@ -137,7 +132,7 @@ class MainWindow:
             self.pb_writingProgress.set_visible(self.cb_slowFormat.get_active())
             self.btn_cancelWriting.set_visible(self.cb_slowFormat.get_active())
 
-            async_task(self.prepare_writing_async)
+            GLib.idle_add(self.prepare_writing)
 
     def btn_exit_clicked(self, button):
         self.window.get_application().quit()
@@ -151,11 +146,6 @@ class MainWindow:
 
     def btn_cancelWriting_clicked(self, button):
         subprocess.call(["pkexec", "kill", "-SIGTERM", str(self.writerProcessPID)])
-
-    def prepare_writing_async(self, task, source_object, data, cancellable):
-        self.prepare_writing()
-
-        task.return_boolean(True)
 
     def prepare_writing(self):
         # Ask if it is ok?
@@ -194,18 +184,25 @@ class MainWindow:
             standard_error=True,
         )
         GLib.io_add_watch(
-            GLib.IOChannel(stdout), GLib.IO_IN | GLib.IO_HUP, self.onProcessStdout
+            GLib.IOChannel(stdout),
+            GLib.PRIORITY_LOW,
+            GLib.IOCondition.IN | GLib.IOCondition.HUP | GLib.IOCondition.ERR,
+            self.onProcessStdout,
         )
         GLib.child_watch_add(
             GLib.PRIORITY_DEFAULT, self.writerProcessPID, self.onProcessExit
         )
 
     def onProcessStdout(self, source, condition):
-        if condition == GLib.IO_HUP:
+        if condition == GLib.IOCondition.HUP or condition == GLib.IOCondition.ERR:
             return False
 
-        line = source.readline().strip()
-        if line[0:8] == "PROGRESS":
+        io_status, line, line_length, terminator_pos = source.read_line()
+        if io_status != GLib.IOStatus.NORMAL or line_length == 0:
+            return True
+
+        line = line.strip()
+        if len(line) != 0 and line[0:8] == "PROGRESS":
             writtenBytes = int(line.split("|")[1])
             totalBytes = int(line.split("|")[2])
             percent = writtenBytes / totalBytes
@@ -222,7 +219,6 @@ class MainWindow:
         return True
 
     def onProcessExit(self, pid, status):
-        self.listUSBDevices()
         self.pb_writingProgress.set_fraction(0)
         self.pb_writingProgress.set_text(_("Formatting"))
 
