@@ -35,7 +35,7 @@ def execute(command):
 subprocess.call(["umount", f"{partition}"])
 
 # Erase MBR
-execute(["dd", "if=/dev/zero", f"of={device}", "bs=512", "count=1"])
+execute(["dd", "if=/dev/zero", f"of={device}", "bs=4096", "count=1"])
 
 # Fill with zeros:
 if isSlow:
@@ -47,6 +47,7 @@ if isSlow:
     writeFile = open(device, "wb")
 
     oldMB = 0
+    zeros = bytes([0] * blockSize)
     try:
         print("PROGRESS|{}|{}".format(writtenBytes, totalFileBytes))
         sys.stdout.flush()
@@ -54,7 +55,6 @@ if isSlow:
             if stopWriting:
                 break
 
-            zeros = bytes([0] * blockSize)
             writeFile.write(zeros)
             writtenBytes += blockSize
 
@@ -89,6 +89,10 @@ elif selectedFormat == "EXT4":
 elif selectedFormat == "NTFS":
     execute(["mkfs.ntfs", "-f", "-L", deviceName, partition])
 elif selectedFormat == "EXFAT":
-    execute(["mkfs.exfat", "-n", deviceName, device])
+    execute(["mkfs.exfat", "-L", deviceName, partition])
+
+# Eject and uneject again to show new partition:
+subprocess.call(["eject", device])
+subprocess.call(["eject", "-t", device])
 
 exit(0)
