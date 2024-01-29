@@ -2,14 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the pardus-usb-formatter package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2022, 2023.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2022, 2023, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-16 15:19+0300\n"
-"PO-Revision-Date: 2023-08-26 17:15+0100\n"
+"PO-Revision-Date: 2024-01-28 23:57+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
 "Language: pt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: ui/MainWindow.glade:14
 msgid "Format USB Devices easily."
@@ -104,20 +104,20 @@ msgstr ""
 #: src/MainWindow.py:262 src/MainWindow.py:282 src/MainWindow.py:290
 #: src/MainWindow.py:301
 msgid "Device name is too long."
-msgstr ""
+msgstr "O nome do dispositivo é muito comprido."
 
 #: src/MainWindow.py:264 src/MainWindow.py:283 src/MainWindow.py:292
 #: src/MainWindow.py:302
 msgid "{} format supports maximum {} characters."
-msgstr ""
+msgstr "o formato {} suporta no máximo {} caracteres."
 
 #: src/MainWindow.py:275
 msgid "Device name contains invalid characters."
-msgstr ""
+msgstr "O nome do dispositivo contém caracteres inválidos."
 
 #: src/MainWindow.py:276
 msgid "FAT32 format only supports ASCII characters."
-msgstr ""
+msgstr "O formato FAT32 suporta apenas caracteres ASCII."
 
 #~ msgid "About"
 #~ msgstr "Acerca"
