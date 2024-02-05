@@ -60,6 +60,13 @@ class MainWindow:
             self.dialog_about.set_version(version)
 
         self.dialog_about.set_program_name(_("Pardus USB Formatter"))
+        if self.dialog_about.get_titlebar() is None:
+            about_headerbar = Gtk.HeaderBar.new()
+            about_headerbar.set_show_close_button(True)
+            about_headerbar.set_title(_("About Pardus USB Formatter"))
+            about_headerbar.pack_start(Gtk.Image.new_from_icon_name("pardus-usb-formatter", Gtk.IconSize.LARGE_TOOLBAR))
+            about_headerbar.show_all()
+            self.dialog_about.set_titlebar(about_headerbar)
 
         # Set application:
         self.application = application
