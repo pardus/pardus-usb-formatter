@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 15:19+0300\n"
-"PO-Revision-Date: 2024-01-28 23:57+0000\n"
+"POT-Creation-Date: 2024-03-18 11:33+0300\n"
+"PO-Revision-Date: 2024-03-18 16:20+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <hugokarvalho@hotmail.com>\n"
 "Language: pt\n"
@@ -17,11 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: ui/MainWindow.glade:14
 msgid "Format USB Devices easily."
 msgstr "Formatar facilmente dispositivos USB."
+
+#. Name Surname <example@examplemail.com>
+#: ui/MainWindow.glade:18
+msgid "translator-credits"
+msgstr "Hugo Carvalho <hugokarvalho@hotmail.com>"
 
 #: ui/MainWindow.glade:53
 msgid "Are you sure?"
@@ -41,7 +46,7 @@ msgstr ""
 "Todos os dados pessoais do dispositivo serão eliminados.\n"
 "Quer continuar?"
 
-#: ui/MainWindow.glade:239 ui/MainWindow.glade:744 src/MainWindow.py:63
+#: ui/MainWindow.glade:239 ui/MainWindow.glade:744 src/MainWindow.py:62
 msgid "Pardus USB Formatter"
 msgstr "Formatador USB Pardus"
 
@@ -61,7 +66,7 @@ msgstr "Formatação lenta (Definir todos os bytes para 0)"
 msgid "Start"
 msgstr "Iniciar"
 
-#: ui/MainWindow.glade:563 src/MainWindow.py:218
+#: ui/MainWindow.glade:563 src/MainWindow.py:230
 msgid "Formatting"
 msgstr "A formatar"
 
@@ -73,11 +78,11 @@ msgstr "Isto pode demorar algum tempo."
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ui/MainWindow.glade:665 src/MainWindow.py:222
+#: ui/MainWindow.glade:665 src/MainWindow.py:234
 msgid "Formatting is finished."
 msgstr "A formatação está concluída."
 
-#: ui/MainWindow.glade:691 src/MainWindow.py:222
+#: ui/MainWindow.glade:691 src/MainWindow.py:234
 msgid "You can eject the USB disk."
 msgstr "Pode ejetar o disco USB."
 
@@ -89,11 +94,15 @@ msgstr "Sair"
 msgid "Format another device."
 msgstr "Formatar outro dispositivo."
 
-#: src/MainWindow.py:231
+#: src/MainWindow.py:66
+msgid "About Pardus USB Formatter"
+msgstr "Acerca do Formatador USB Pardus"
+
+#: src/MainWindow.py:243
 msgid "An error occured while formatting the disk."
 msgstr "Ocorreu um erro durante a formatação do disco."
 
-#: src/MainWindow.py:235
+#: src/MainWindow.py:247
 msgid ""
 "Please make sure the USB device is connected properly, not used by any "
 "program and try again."
@@ -101,21 +110,21 @@ msgstr ""
 "Certifique-se de que o dispositivo USB está ligado corretamente, não é "
 "utilizado por nenhum programa e tente novamente."
 
-#: src/MainWindow.py:262 src/MainWindow.py:282 src/MainWindow.py:290
-#: src/MainWindow.py:301
+#: src/MainWindow.py:274 src/MainWindow.py:294 src/MainWindow.py:302
+#: src/MainWindow.py:313
 msgid "Device name is too long."
 msgstr "O nome do dispositivo é muito comprido."
 
-#: src/MainWindow.py:264 src/MainWindow.py:283 src/MainWindow.py:292
-#: src/MainWindow.py:302
+#: src/MainWindow.py:276 src/MainWindow.py:295 src/MainWindow.py:304
+#: src/MainWindow.py:314
 msgid "{} format supports maximum {} characters."
 msgstr "o formato {} suporta no máximo {} caracteres."
 
-#: src/MainWindow.py:275
+#: src/MainWindow.py:287
 msgid "Device name contains invalid characters."
 msgstr "O nome do dispositivo contém caracteres inválidos."
 
-#: src/MainWindow.py:276
+#: src/MainWindow.py:288
 msgid "FAT32 format only supports ASCII characters."
 msgstr "O formato FAT32 suporta apenas caracteres ASCII."
 
