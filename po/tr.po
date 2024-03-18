@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Emin fedar <emin.fedar@pardus.org.tr>, 2020.
-# Fatih Altun <fatih.altun@pardus.org.tr>, 2023.
+# Fatih Altun <fatih.altun@pardus.org.tr>, 2023-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 15:19+0300\n"
-"PO-Revision-Date: 2023-08-20 20:24+0300\n"
+"POT-Creation-Date: 2024-03-18 11:33+0300\n"
+"PO-Revision-Date: 2024-03-18 11:37+0300\n"
 "Last-Translator: Fatih Altun <fatih.altun@pardus.org.tr>\n"
 "Language-Team: Turkish <dev@pardus.org.tr>\n"
 "Language: tr\n"
@@ -18,11 +18,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"X-Generator: Gtranslator 3.38.0\n"
+"X-Generator: Gtranslator 42.0\n"
 
 #: ui/MainWindow.glade:14
 msgid "Format USB Devices easily."
 msgstr "USB diskleri kolayca biçimlendirin."
+
+#. Name Surname <example@examplemail.com>
+#: ui/MainWindow.glade:18
+msgid "translator-credits"
+msgstr "Emin Fedar <emin.fedar@pardus.org.tr>"
 
 #: ui/MainWindow.glade:53
 msgid "Are you sure?"
@@ -42,7 +47,7 @@ msgstr ""
 "Cihazdaki tüm verileriniz silinecek.\n"
 "Devam etmek istiyor musunuz?"
 
-#: ui/MainWindow.glade:239 ui/MainWindow.glade:744 src/MainWindow.py:63
+#: ui/MainWindow.glade:239 ui/MainWindow.glade:744 src/MainWindow.py:62
 msgid "Pardus USB Formatter"
 msgstr "Pardus USB Biçimlendirici"
 
@@ -62,7 +67,7 @@ msgstr "Yavaş Biçimlendir (Tüm baytları sıfırla)"
 msgid "Start"
 msgstr "Başlat"
 
-#: ui/MainWindow.glade:563 src/MainWindow.py:218
+#: ui/MainWindow.glade:563 src/MainWindow.py:230
 msgid "Formatting"
 msgstr "Biçimlendiriliyor"
 
@@ -74,11 +79,11 @@ msgstr "Bu biraz sürebilir."
 msgid "Cancel"
 msgstr "İptal Et"
 
-#: ui/MainWindow.glade:665 src/MainWindow.py:222
+#: ui/MainWindow.glade:665 src/MainWindow.py:234
 msgid "Formatting is finished."
 msgstr "Biçimlendirme tamamlandı."
 
-#: ui/MainWindow.glade:691 src/MainWindow.py:222
+#: ui/MainWindow.glade:691 src/MainWindow.py:234
 msgid "You can eject the USB disk."
 msgstr "USB diski çıkartabilirsiniz."
 
@@ -90,34 +95,40 @@ msgstr "Çıkış"
 msgid "Format another device."
 msgstr "Başka bir cihaz biçimlendir."
 
-#: src/MainWindow.py:231
+#: src/MainWindow.py:66
+msgid "About Pardus USB Formatter"
+msgstr "Pardus USB Biçimlendirici Hakkında"
+
+#: src/MainWindow.py:243
 msgid "An error occured while formatting the disk."
 msgstr "Disk biçimlendirilirken bir hata oluştu."
 
-#: src/MainWindow.py:235
+#: src/MainWindow.py:247
 msgid ""
 "Please make sure the USB device is connected properly, not used by any "
 "program and try again."
 msgstr ""
 "Lütfen USB cihazın düzgün takılı olduğundan emin olun ve tekrar deneyin."
 
-#: src/MainWindow.py:262 src/MainWindow.py:282 src/MainWindow.py:290
-#: src/MainWindow.py:301
+#: src/MainWindow.py:274 src/MainWindow.py:294 src/MainWindow.py:302
+#: src/MainWindow.py:313
 msgid "Device name is too long."
 msgstr "Cihaz ismi çok uzun."
 
-#: src/MainWindow.py:264 src/MainWindow.py:283 src/MainWindow.py:292
-#: src/MainWindow.py:302
+#: src/MainWindow.py:276 src/MainWindow.py:295 src/MainWindow.py:304
+#: src/MainWindow.py:314
 msgid "{} format supports maximum {} characters."
 msgstr "{} formatı en fazla {} karakteri destekliyor."
 
-#: src/MainWindow.py:275
+#: src/MainWindow.py:287
 msgid "Device name contains invalid characters."
 msgstr "Cihaz ismi geçersiz karakterler içeriyor."
 
-#: src/MainWindow.py:276
+#: src/MainWindow.py:288
 msgid "FAT32 format only supports ASCII characters."
-msgstr "FAT32 formatı sadece ASCII karakterlerini desteklemektedir. Türkçe karakter kullanmayınız."
+msgstr ""
+"FAT32 formatı sadece ASCII karakterlerini desteklemektedir. Türkçe karakter "
+"kullanmayınız."
 
 #~ msgid "About"
 #~ msgstr "Hakkında"
