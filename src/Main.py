@@ -4,7 +4,7 @@ import sys
 import gi
 
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gio, Gtk
+from gi.repository import Gio, Gtk, GLib
 
 from MainWindow import MainWindow
 
@@ -14,6 +14,7 @@ class Application(Gtk.Application):
         super().__init__(*args, application_id="tr.org.pardus.usb-formatter", flags=Gio.ApplicationFlags.HANDLES_OPEN,
                          **kwargs)
         self.window = None
+        GLib.set_prgname("tr.org.pardus.usb-formatter")
 
     def do_activate(self):
         self.window = MainWindow(self)
