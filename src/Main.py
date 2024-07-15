@@ -11,8 +11,8 @@ from MainWindow import MainWindow
 
 class Application(Gtk.Application):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, application_id="tr.org.pardus.usb-formatter", flags=Gio.ApplicationFlags.HANDLES_OPEN,
-                         **kwargs)
+        super().__init__(*args, application_id="tr.org.pardus.usb-formatter",
+                         flags=Gio.ApplicationFlags.HANDLES_OPEN | Gio.ApplicationFlags.NON_UNIQUE, **kwargs)
         self.window = None
         GLib.set_prgname("tr.org.pardus.usb-formatter")
 
