@@ -1,3 +1,29 @@
+pardus-usb-formatter (0.6.0) unstable; urgency=medium
+
+  [ Hugo Carvalho ]
+  * Update Portuguese translations
+
+  [ bariscodefx ]
+  *  ported xfce about dialog fix from pardus-software
+
+  [ Fatih Altun ]
+  * Fix translators structure
+  * Update pot file
+  * Update Turkish translations
+  * Add mail addresses to about dialog credits
+
+  [ Hugo Carvalho ]
+  * Update Portuguese translations
+
+  [ sulincix ]
+  * fix kde wayland wrong icon issue
+
+  [ Fatih Altun ]
+  * Add Gio non unique flag to Main
+  * Add 32512 to auth control exit codes
+
+ -- Fatih Altun <fatih.altun@pardus.org.tr>  Tue, 16 Jul 2024 12:41:00 +0300
+
 pardus-usb-formatter (0.5.0) unstable; urgency=medium
 
   [ Emin Fedar ]
