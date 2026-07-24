@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>tr.org.pardus.usb-formatter</id>
+  <name>Pardus USB Formatter</name>
+  <summary>Format USB drives and create bootable Pardus media</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <launchable type="desktop-id">tr.org.pardus.usb-formatter.desktop</launchable>
+  <description>
+    <p>Format removable USB drives or write a verified Pardus ISO directly to a USB device.</p>
+    <p>Current Pardus GNOME and XFCE images are streamed from the official mirror and verified with SHA-256 while writing.</p>
+  </description>
+  <url type="homepage">https://github.com/pardus/pardus-usb-formatter</url>
+  <categories>
+    <category>System</category>
+    <category>Utility</category>
+  </categories>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Format a USB device</caption>
+      <image type="source">https://example.com/pardus-usb-formatter/screenshots/format-usb.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Write a verified Pardus ISO</caption>
+      <image type="source">https://example.com/pardus-usb-formatter/screenshots/write-iso.png</image>
+    </screenshot>
+  </screenshots>
+</component>

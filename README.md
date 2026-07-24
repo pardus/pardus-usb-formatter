@@ -2,6 +2,15 @@
 
 Pardus Usb Formatter is an application for format USB drives easily.
 
+It can also create bootable USB media from the latest official Pardus GNOME or
+XFCE ISO, or from a local ISO file. Current Pardus images are discovered from
+the official mirror, downloaded into a per-user cache directory, and validated
+against the mirror's `SHA256SUMS` before the USB device is changed. The ISO
+writer copies ISO files to a new MBR (Legacy/CSM) or GPT (UEFI) USB partition;
+it installs GRUB PC for MBR and verifies the ISO's UEFI fallback loader for
+GPT. The writer requires at least 4 GiB of cache free space and USB capacity.
+The cached ISO is removed after success, failure, or cancellation.
+
 It is currently a work in progress. Maintenance is done by <a href="https://www.pardus.org.tr/">Pardus</a> team.
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/pardus-usb-formatter.svg)](https://repology.org/project/pardus-usb-formatter/versions)

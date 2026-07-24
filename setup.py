@@ -55,14 +55,27 @@ data_files = [
             "src/Main.py",
             "src/MainWindow.py",
             "src/USBFormatter.py",
+            "src/ISOWriter.py",
             "src/USBDeviceManager.py",
             "src/__version__",
         ],
+    ),
+    (
+        "/usr/share/pardus/pardus-usb-formatter/src/downloader",
+        ["src/downloader/__init__.py", "src/downloader/pardus.py"],
+    ),
+    (
+        "/usr/share/pardus/pardus-usb-formatter/src/hash",
+        ["src/hash/__init__.py", "src/hash/sha256.py"],
     ),
     ("/usr/share/pardus/pardus-usb-formatter/ui", ["ui/MainWindow.glade"]),
     (
         "/usr/share/polkit-1/actions",
         ["tr.org.pardus.pkexec.pardus-usb-formatter.policy"],
+    ),
+    (
+        "/usr/share/metainfo",
+        ["tr.org.pardus.usb-formatter.metainfo.xml"],
     ),
     ("/usr/bin/", ["pardus-usb-formatter"]),
     ("/usr/share/icons/hicolor/scalable/apps/", ["pardus-usb-formatter.svg"]),

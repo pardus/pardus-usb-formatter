@@ -5,6 +5,7 @@ from glob import glob
 
 from pyudev import Context, Monitor, Devices
 from pyudev import MonitorObserver, DeviceNotFoundAtPathError
+from gi.repository import GLib
 
 
 class USBDeviceManager:
@@ -15,7 +16,7 @@ class USBDeviceManager:
         self.monitor.filter_by(subsystem="block", device_type="disk")
 
         def log_event(action, device):
-            self.refreshSignal()
+            GLib.idle_add(self.refreshSignal)
 
         self.observer = MonitorObserver(self.monitor, log_event)
         self.observer.start()
