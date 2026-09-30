@@ -1,3 +1,13 @@
+pardus-usb-formatter (0.7.1) unstable; urgency=medium
+
+  [ Hugo Carvalho ]
+  * Update Portuguese translations
+
+  [ jankesec ]
+  * Fix slow format --fill argument parsing and undefined device variable
+
+ -- Fatih Altun <fatih.altun@pardus.org.tr>  Wed, 30 Sep 2026 22:23:44 +0300
+
 pardus-usb-formatter (0.7.0) unstable; urgency=medium
 
   [ Ali Riza KESKIN ]
