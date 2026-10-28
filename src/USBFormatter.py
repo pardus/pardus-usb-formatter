@@ -30,11 +30,18 @@ parser = argparse.ArgumentParser(
 parser.add_argument('-t', '--type', default="FAT32")
 parser.add_argument('-d', '--device', required=True)
 parser.add_argument('-l', '--label',default="")
-parser.add_argument('-c', '--crypt')
+parser.add_argument('-c', '--crypt', default=False, action='store_true')
 parser.add_argument('-f', '--fill', default=False, action='store_true')
 parser.add_argument('-g', '--gpt', default=False, action='store_true')
 
 args = parser.parse_args()
+
+
+# The luks password comes from stdin so it doesn't show up in ps output
+password = sys.stdin.readline().rstrip("\n") if args.crypt else None
+if args.crypt and not password:
+    print("No password given for encryption", file=sys.stderr)
+    exit(1)
 
 
 # Only allow USB disks listed by the GUI (prevents non-removable disks and ../ traversal)
@@ -168,7 +175,7 @@ luks = None
 # Crypt:
 if args.crypt:
     luks = str(uuid.uuid4())
-    create_luks(partition, luks, args.crypt)
+    create_luks(partition, luks, password)
     partition = f"/dev/mapper/{luks}"
 
 # Format:
